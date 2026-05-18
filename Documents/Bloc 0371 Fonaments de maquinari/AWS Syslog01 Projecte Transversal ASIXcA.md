@@ -8,7 +8,7 @@ Creació de la instancia:
 | IP privada | 10.0.1.30 |
 | Seguretat | Port 514 obert |
 
-![Tralalero Tralala](../Imatges/syslog01.png)
+![Tralalero Tralala](../../Imatges/syslog01.png)
 
 Una vegada creades les claus pem., les guardem a la carpeta compartida del drive del grup i accedim a la maquina:
 
