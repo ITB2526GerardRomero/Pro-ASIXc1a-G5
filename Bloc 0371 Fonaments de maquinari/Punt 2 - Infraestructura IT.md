@@ -182,8 +182,12 @@ Core Switch
   ├── Rack D (Video)
   ├── Rack E (Jitsi)
   └── Rack F (Database)
+
+  
 Distribución según el plano
+
 Según el plano del CPD:
+
 Los racks están distribuidos en filas con pasillos de mantenimiento.
 Los sistemas de aire acondicionado (AA) están colocados estratégicamente para mantener flujo frío/caliente.
 La zona de control y monitorización está aislada del área principal.
@@ -194,7 +198,10 @@ Mejor circulación del aire.
 Reducción de puntos calientes.
 Acceso rápido para mantenimiento.
 Seguridad física reforzada.
+
+ 
  Justificación técnica
+ 
 La infraestructura propuesta cumple:
 Alta disponibilidad.
 Escalabilidad.
