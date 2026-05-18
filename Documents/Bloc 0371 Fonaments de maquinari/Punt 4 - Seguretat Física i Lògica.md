@@ -1,4 +1,4 @@
-- Seguretat física:   
+-  ## Seguretat física:   
   La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció les principals maneres de vigilància són:  
     
 - Elements d’accés al CPD:
@@ -24,7 +24,7 @@
 
   Per a poder evacuar a la gent que hi hagi dintre, el més recomanat és posar una sortid d’incendis a l’altra costat de la sala, millor si aquesta es troba a lluny dels servidors del CPD, per a que no hi hagin objectes que poden interrompre el camí a aquesta.
 
-- Seguretat lògica:  
+- ## Seguretat lògica:  
   En canvi la seguretat lògica ha de ser més rigorosa, degut a que els servidors en un CPD contenen informació més valios, és per això que aplicarem la següent seguretat:
 
 - Restricció d’accés per autorització:
@@ -42,7 +42,7 @@
   Programes de monitorització i recull de logs per poder veure, quin error succeeix, quan succeeix, i per què succeeix. En tot cas el programa de monitoratge, envia un missatge als ordinadors centrals quan ocurreix algun error.
 
 
-- Còpies de seguretat:
+- ## Còpies de seguretat:
 
   És faria principalment una còpia de seguretat base cada diumenge per a que, si es fastidia alguna maquina, o es perd alguna cosa entre les màquines poder recuperarla. I a part fer copies diferencials diàries per poder fer un backup en el cas de que passi alguna cosa, d’un dia al altre.
 
@@ -61,7 +61,7 @@
   I podem evitar riscos ambientals, per exemple posar ventiladors per a poder evitar una temperatura molt alta i que aixì sigui estable, també es poden aplicar auriculars per controlar el soroll en el cas dels treballadors.  
     
     
-- Maneres de fer això més sostenible:  
+- ## Maneres de fer això més sostenible:  
   Per poder fer que el CPD sigui sostenible es poden aplicar maneres, com per exemple:  
 - Instal·lació de plaques solars per poder alimentar aixì el CPD.  
 - Reutilització de l’aire utilitzat, sempre i quan s’utilitzi un filtre per poder netejar aquest aire, i aixì re-utilitzar-ho.  
