@@ -10,48 +10,48 @@ Dades de la instancia:
 
 Creció de la instancia:
 
-![][image1]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio01.png)
 
 Accedim a ella:
 
-![][image2]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio02.png)
 
 Creació usuari administració:
 
-![][image3]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio03.png)
 
 INSTALAR ICECAST2:
 
-![][image4]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio04.png)
 
 Editem el fitxer de configuració del servei per a configurar el servei:
 
 Contrasenyas:
 
-![][image5]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio05.png)
 
 CAMBIAR HOSTNAME:
 
-![][image6]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio06.png)
 
 ACTIVAR ICECAST:
 
-![][image7]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio07.png)
 
-![][image8]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio08.png)
 
 Funcionament del servei:
 
-![][image9]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio09.png)
 
 Ara obrim el VLC de l’ordinador, obrim la configuracio de flux, seleccionem un arxiu mp3 i configurem la seva emissio:
 
-![][image10]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio10.png)
 
 Ara podem veure com es reprodueix l’audio del VLC al Icecast del servidor via web:
 
-![][image11]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio11.png)
 
 També podem veure dades dels escoltadors:
 
-![][image12]
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio12.png)
