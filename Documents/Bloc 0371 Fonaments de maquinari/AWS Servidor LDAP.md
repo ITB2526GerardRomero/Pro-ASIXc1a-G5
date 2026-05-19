@@ -58,3 +58,7 @@ Comprovació
 
 ![Comprovació slapd](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/comprobslapd.png)
 
+**Creació d'usuari administrador, accés amb clau publica/privada.**
+
+fem la configuració necessària al fitxer, "sudo nano /etc/ssh/sshd_config".
+
