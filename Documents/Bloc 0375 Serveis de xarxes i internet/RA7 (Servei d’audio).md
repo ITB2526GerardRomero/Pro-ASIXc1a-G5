@@ -1,3 +1,49 @@
+Descripció del servei:
+
+El servei d’àudio implementat permet la transmissió de contingut multimèdia en temps real mitjançant tecnologia de streaming.
+
+Aquest sistema permet:
+
+reproduir àudio remotament,
+accedir des d’un navegador web,
+centralitzar emissions d’àudio,
+distribuir contingut multimèdia a diferents clients simultàniament.
+Funcionament del servei
+
+El servidor d’àudio funciona utilitzant un sistema de streaming basat en Icecast2.
+
+El funcionament és el següent:
+
+Client emissor → Servidor Icecast2 → Clients receptors
+Un client emissor envia l’àudio al servidor.
+El servidor Icecast2 rep el flux d’àudio.
+Els usuaris poden connectar-se mitjançant navegador web o reproductors multimèdia.
+El servidor distribueix l’àudio en temps real.
+
+Seguretat i administració
+
+L’accés al servidor es realitza mitjançant:
+
+autenticació d’usuaris,
+contrasenyes configurades al servidor Icecast2,
+administració remota segura mitjançant SSH amb claus públiques/privades.
+Validació del servei
+
+Es van realitzar proves funcionals:
+
+emissió correcta d’àudio,
+connexió de clients remots,
+reproducció des de navegador web,
+verificació de l’estabilitat del streaming.
+Beneficis del sistema
+
+La implementació del servei d’àudio permet:
+
+centralitzar emissions multimèdia,
+reduir costos d’infraestructura,
+facilitar la distribució d’àudio,
+millorar l’accessibilitat dels continguts.
+
 Dades de la instancia:
 
 | Configuración | Valor |
