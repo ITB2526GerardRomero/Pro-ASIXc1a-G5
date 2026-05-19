@@ -34,3 +34,10 @@ Això fa:
 Reiniciem el servei:
 
 ![Sisena captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog06.png)
+
+Per a la comprovació caldra instalar el rsyslog en els servidors i en el fitxer /etc/rsyslog.conf afegir la linea *.* @10.0.1.30:514 i despres reiniciar client sudo systemctl restart rsyslog i finalment veure en el cd /var/log/remote web01/ ldap01/ db01/
+
+
+Finalment creem l'usuari administracio:
+
+![Sisena captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog08.png)
