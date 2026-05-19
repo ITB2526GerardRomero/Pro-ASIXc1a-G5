@@ -60,5 +60,12 @@ Comprovació
 
 **Creació d'usuari administrador, accés amb clau publica/privada.**
 
-fem la configuració necessària al fitxer, "sudo nano /etc/ssh/sshd_config".
+Fem la configuració necessària al fitxer, "sudo nano /etc/ssh/sshd_config".
 
+![Admin SSH 1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminssh1.png)
+
+![Admin SSH 2](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminssh2.png)
+
+Comprovació amb l'usurai administració.
+
+![Admin Login](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminlogin.png)
