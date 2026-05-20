@@ -82,3 +82,25 @@ I com utilitza HTTPS li donem que encripti els certificats, no posem email i ni 
 I ara podrem verificar que funcionen les reunions si ens fiquem a l'adreça pertinent, com l'hem posat la IP elàstica al navegador també li posem la IP elàstica, també hem fet una prova des de el telèfon mòbil per veure que ens podem ficar des de un tercer:
 
 ![Verificiació jitsi imatge video](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video18.png)
+
+** Comprovacions d'amplada de banda:
+
+Necessitarem instal·lar el servei de speedtest client per poder veure aixì la pujada i baixada en velocitat:
+
+![Install speedtest](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video19.png)
+
+Llavors primer anem a fer la verificació de la velocitat amb el Nginx desactivat, ja que és qui porta els serveis de streaming i videoconferència:
+
+![Comprovació speedtest sense Nginx](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video20.png)
+
+I verifiquem la latència:
+
+![Ping](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video21.png)
+
+Per ultim, anem a verificar la pujada i baixada amb els serveis actius, i mentre fa la transmissió, és a dir, activareme el Nginx:
+
+![Comprovació speedtest amb Nginx](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video22.png)
+
+Amb aquestes dades hem pogut observar que aquest sistema si que pot ser necessari per a un CPD, en canvi, ha de ser un CPD simple i que no gasti molts recursos, en el cas contrari, ja sigui per a una empresa en la que gasti molts recursos, no es suficient. És a dir, que per portar coses petites com un servidor, docker entre altres, si que pot ser util.
+
+Si volguessim utilitzar-ho per a una empressa llavors algunes millores per a la infraestructura podrien ser, per exemple, segmentació de xarxa, millora de hardware dels dispositius i una connexió multioperadora.
