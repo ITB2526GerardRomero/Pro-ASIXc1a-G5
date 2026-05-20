@@ -124,9 +124,9 @@ speedtest-cli
 
 La prova es va executar directament des del servidor AWS EC2 on està implementat el servei d’àudio.
 
-![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio01.png)
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio14.png)
 
-![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio01.png)
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio15.png)
 
 # **Resultats obtinguts**
 
