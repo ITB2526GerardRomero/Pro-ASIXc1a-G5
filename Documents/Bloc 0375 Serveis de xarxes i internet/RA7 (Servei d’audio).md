@@ -107,3 +107,94 @@ Comprovació de que es pot escoltar l’audio desde la ruta
 Execució de la comanda:
 
 ![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio13.png)
+
+# **PUNT DE CONTROL TRANSVERSAL — Amplada de banda**
+
+## **Objectiu**
+
+Analitzar el rendiment de xarxa disponible per comprovar si la infraestructura implementada és adequada per suportar els serveis multimèdia del projecte, especialment el servei d’àudio en streaming implementat amb Icecast2.
+
+---
+
+# **Proves de velocitat realitzades**
+
+Per realitzar les proves de rendiment de xarxa s’ha utilitzat l’eina:
+
+speedtest-cli
+
+La prova es va executar directament des del servidor AWS EC2 on està implementat el servei d’àudio.
+
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio01.png)
+
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio01.png)
+
+# **Resultats obtinguts**
+
+| Paràmetre | Resultat |
+| ----- | ----- |
+| Download | 1949.06 Mbit/s |
+| Upload | 1869.21 Mbit/s |
+| Latència | 6.502 ms |
+
+Servidor de prova utilitzat:
+
+Internet Subway (Richmond, VA)
+
+---
+
+# **Anàlisi dels resultats**
+
+Els resultats obtinguts mostren un rendiment de xarxa molt elevat i una latència extremadament baixa.
+
+La velocitat de descàrrega i pujada supera àmpliament els requisits necessaris per al servei d’àudio implementat.
+
+El servei de streaming configurat utilitza codificació MP3 amb un bitrate aproximat de:
+
+128 kbps (0.128 Mbps)
+
+Comparant aquest consum amb l’ample de banda disponible:
+
+| Element | Consum aproximat |
+| ----- | ----- |
+| Streaming d’àudio | 0.128 Mbps |
+| Upload disponible | 1869 Mbps |
+
+Es pot concloure que el consum del servei és pràcticament insignificant respecte a la capacitat disponible de la infraestructura AWS.
+
+La latència de:
+
+6.5 ms
+
+és excel·lent per serveis en temps real i garanteix una reproducció estable sense talls ni interrupcions.
+
+# **Relació amb els serveis multimèdia**
+
+## **Servei d’àudio**
+
+El servei d’àudio és el menys exigent en consum d’amplada de banda. El bitrate utilitzat permet reproducció estable fins i tot en connexions modestes.
+
+# **Classificació del sistema**
+
+## **Sistema acceptable**
+
+La infraestructura implementada es considera plenament acceptable per oferir:
+
+* streaming d’àudio,  
+* serveis multimèdia,  
+* comunicacions en temps real.
+
+Els resultats obtinguts garanteixen estabilitat i qualitat suficient per múltiples clients connectats simultàniament.
+
+---
+
+# **Propostes d’optimització**
+
+Tot i els bons resultats obtinguts, es proposen les següents millores:
+
+* Implementació de QoS per prioritzar tràfic multimèdia.  
+* Utilització de compressió MP3 eficient.  
+* Reducció del bitrate en connexions lentes.  
+* Ús de connexions cablejades per reduir latència.  
+* Balanceig de càrrega per suportar múltiples clients simultanis.  
+* Monitorització contínua de l’ample de banda i latència.
+
