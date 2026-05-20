@@ -90,14 +90,20 @@ Funcionament del servei:
 
 ![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio09.png)
 
-Ara obrim el VLC de l’ordinador, obrim la configuracio de flux, seleccionem un arxiu mp3 i configurem la seva emissio:
+Per a enviar l’audio a la pàgina utilitza el servei ffmpeg.
+
+Instal·lació:
 
 ![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio10.png)
 
-Ara podem veure com es reprodueix l’audio del VLC al Icecast del servidor via web:
+Una vegada descarregat el mp3, utilitzem la comanda següent indicant el audio la direcció de la pàgina i les credencials del usuari que permet pujar l’audio.
 
 ![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio11.png)
 
-També podem veure dades dels escoltadors:
+Comprovació de que es pot escoltar l’audio desde la ruta
 
 ![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio12.png)
+
+Execució de la comanda:
+
+![Primera captura](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio13.png)
