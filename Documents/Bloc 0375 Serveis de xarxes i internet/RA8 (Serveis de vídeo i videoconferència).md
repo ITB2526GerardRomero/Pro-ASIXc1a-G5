@@ -83,7 +83,7 @@ I ara podrem verificar que funcionen les reunions si ens fiquem a l'adreça pert
 
 ![Verificiació jitsi imatge video](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video18.png)
 
-** Comprovacions d'amplada de banda:
+Comprovacions d'amplada de banda:
 
 Necessitarem instal·lar el servei de speedtest client per poder veure aixì la pujada i baixada en velocitat:
 
