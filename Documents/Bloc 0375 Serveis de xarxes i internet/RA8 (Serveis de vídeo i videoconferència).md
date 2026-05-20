@@ -42,7 +42,7 @@ Com hem configurat tot de manera correcta, no ens surt cap error a la hora de fe
 
 ![Vuitena imatge video](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video08.png)
 
-I ara si ens fiquem al següent enllaç (htpps://98.80.217.120:8080/hls/test.m3u8) podrem veure la transmissió en directe, cap aclarir que té un retard molt gran entre el que passa i el que surt al navegador:
+I ara si ens fiquem al següent enllaç (http://98.80.217.120:8080/hls/test.m3u8) podrem veure la transmissió en directe, cap aclarir que té un retard molt gran entre el que passa i el que surt al navegador:
 
 ![Novena imatge video](../../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video09.png)
 
