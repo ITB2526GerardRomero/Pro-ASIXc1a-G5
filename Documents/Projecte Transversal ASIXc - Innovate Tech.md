@@ -157,25 +157,25 @@ Components:
 
 **Plànol de planta del CPD**
 
-![Plànol de planta del CPD](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/planta-cpd.png)
+![Plànol de planta del CPD](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/planta-cpd.png)
 
 Vista superior de la sala mostrant la disposició dels 2 racks en configuració passadís fred/calent, les 2 unitats CRAC i la porta d'accés.
 
 **Tall lateral - flux d'aire**
 
-![Tall lateral - flux d'aire](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/flux-aire.png)
+![Tall lateral - flux d'aire](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/flux-aire.png)
 
 Cicle complet de refrigeració mostrant com l'aire fred surt del terra tècnic, passa pels servidors, i torna al CRAC pel sostre tècnic.
 
 **Distribució del cablejat**
 
-![Distribució del cablejat](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/cablejat.png)
+![Distribució del cablejat](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/cablejat.png)
 
 Separació física de 50 cm entre el cablejat de dades (sostre tècnic) i el cablejat elèctric (terra tècnic).
 
 **7- Estructuració dels racks (mínim 2 racks).**
 
-![Vista frontal dels racks](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/racks-frontal.png)
+![Vista frontal dels racks](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/racks-frontal.png)
 
 Hem instal·lat 2 racks de 42U del model APC NetShelter SX, tenen 600 mm d’ample exterior amb interior estándar de 19 polzades, 1.070 mm de fons, soportan 1.360 kg de càrrega, portes perforades i pany.
 
