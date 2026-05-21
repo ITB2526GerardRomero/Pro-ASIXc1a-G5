@@ -841,11 +841,6 @@ Un cop consolidada la infraestructura de maquinari (tant local com al núvol), e
 Implementació d'una arquitectura multimèdia que suporti la distribució de continguts en streaming i eines de videoconferència en temps real, accessibles des de clients locals i navegadors web.
 
 ### 2.2 Implantació del Servei d'Àudio
-*En aquest apartat s'ha de detallar:*
-- Instal·lació i configuració d'un servidor d'àudio en streaming (directe i sota demanda).
-- Formats digitals utilitzats com MP3, AAC o OGG.
-- Captures i evidències d'accés funcional via client i navegador.
-
 Descripció del servei:
 
 El servei d’àudio implementat permet la transmissió de contingut multimèdia en temps real mitjançant tecnologia de streaming.
@@ -1048,10 +1043,6 @@ Tot i els bons resultats obtinguts, es proposen les següents millores:
 
 
 ### 2.3 Implantació del Servei de Vídeo i Videoconferència
-*En aquest apartat s'ha de detallar:*
-- Configuració del servidor de streaming de vídeo (NGINX, Jellyfin, etc.) amb configuració RTMP o HLS i formats H.264/MP4.
-- Desplegament d'un servei de videoconferència (p. ex., Jitsi Meet usant WebRTC).
-- Resultats de proves de connexió i videotrucada funcional entre usuaris.
 
 Bloc 0375 Serveis de xarxes i internet
 
@@ -1059,10 +1050,10 @@ Bloc 0375 Serveis de xarxes i internet
 
 La funcionalitat que volem amb el servei de vídeo són varies, per exemple volem que:
 
-- Els treballadors es puguin enviar vídeos entre si per poder veure com fan manteniment dels servidors.  
+- Els treballadors es puguin enviar vídeos en streaming entre si per poder veure com fan manteniment dels servidors.  
 - Els treballadors puguin fer videoconferències en directe com a medida per fer una reunió en cas de que algu no estigui disponible.  
-- Accés des  de qualsevol navegador web.  
-- Hi hagi compatibilitat amb videos moderns.
+- Accés des de qualsevol navegador web.  
+- Hi hagi compatibilitat amb videos moderns i antics, a part de que tinguin qualsevol tipus d'extensió.
 
 Primer de tot crearem una altra màquina amb Ubuntu, que serà el servidor de video:
 
