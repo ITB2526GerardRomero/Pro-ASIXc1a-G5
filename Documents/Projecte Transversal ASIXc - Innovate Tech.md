@@ -195,12 +195,7 @@ Normatives aplicades:
 - **TIA-942:** Infraestructura de telecomunicacions per a CPDs  
 - **ISO/IEC 11801:** Cablejat genèric
 
-### 1.2 Infraestructura IT i Elèctrica
-*En aquest apartat s'ha de detallar:*
-- **Estructura:** Distribució d'un mínim de 2 racks.
-- **Hardware IT:** Servidors (número i model), patch panels i switches.
-- **Electricitat:** Sistemes d'alimentació redundant i càlcul de components/bateries SAIS per assegurar l'autonomia elèctrica.
-
+### 1.2 Infraestructura IT
 
 ## **Infraestructura IT**
 
@@ -208,7 +203,7 @@ A continuació es descriura la infrastructura IT proposada per al CPD de Inova T
 
 **Pla general del CPD**
 
-El CPD disposa d'una superfície de 20x20 metres, organitzada en:
+El CPD disposa d'una superfície de 8 x 6 m², organitzada en:
 
 - Zona principal de racks de servidors.  
 - Zona de control i monitoratge.  
@@ -216,97 +211,97 @@ El CPD disposa d'una superfície de 20x20 metres, organitzada en:
 - Seguretat física mitjançant cambres i extintors.  
 - Passadissos optimitzats per a manteniment i flux d'aire.
 
-| Servidor | Función | Modelo Propuesto | CPU | RAM | Almacenamiento |
+| Servidor | Funció | Model Prupossat | CPU | RAM | Emmagatzematge |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | WEB-SFTP | Web \+ SFTP | Dell PowerEdge R350 | 4 vCPU | 8 GB | 250 GB SSD |
-| LDAP-AD | Directorio Activo | Dell PowerEdge R350 | 4 vCPU | 8 GB | 250 GB SSD |
-| LOGS | Centralización de logs | HPE ProLiant DL360 | 4 vCPU | 16 GB | 500 GB SSD |
-| AUDIO | Streaming de audio | Dell PowerEdge R250 | 2 vCPU | 4 GB | 120 GB SSD |
+| LDAP-AD | Directori Actiu | Dell PowerEdge R350 | 4 vCPU | 8 GB | 250 GB SSD |
+| LOGS | Centralització de logs | HPE ProLiant DL360 | 4 vCPU | 16 GB | 500 GB SSD |
+| AUDIO | Streaming d'audio | Dell PowerEdge R250 | 2 vCPU | 4 GB | 120 GB SSD |
 | VIDEO | Streaming de vídeo | HPE ProLiant DL380 | 8 vCPU | 16 GB | 1 TB SSD |
-| JITSI | Videoconferencias | Dell PowerEdge R550 | 8 vCPU | 16 GB | 500 GB SSD |
-| DATABASE | Base de datos | HPE ProLiant DL360 | 8 vCPU | 32 GB | RAID 1 SSD |
-| ANSIBLE | Automatización | Dell PowerEdge R250 | 2 vCPU | 4 GB | 120 GB SSD |
+| JITSI | Videoconferències | Dell PowerEdge R550 | 8 vCPU | 16 GB | 500 GB SSD |
+| DATABASE | Base de dades | HPE ProLiant DL360 | 8 vCPU | 32 GB | RAID 1 SSD |
+| ANSIBLE | Automatizació | Dell PowerEdge R250 | 2 vCPU | 4 GB | 120 GB SSD |
 
 # **Patch Panels**
 
-Se utilizarán patch panels Cat6A para la distribución estructurada del cableado.
+S'utilizarán patch panels Cat6A per a la distribució estructurada del clabejat.
 
-## **Características**
+## **Característiques**
 
-| Elemento | Cantidad | Características |
+| Element | Quantitat | Característiques |
 | ----- | ----- | ----- |
-| Patch Panel Cat6A | 4 | 24 puertos RJ45 |
-| Patch Panel Fibra | 2 | LC-LC multimodo |
-| Organizadores de cable | 8 | Horizontal y vertical |
-| Bandejas rack | 6 | Gestión de equipos |
+| Patch Panel Cat6A | 4 | 24 ports RJ45 |
+| Patch Panel Fibra | 2 | LC-LC multimode |
+| Organitzador de cable | 8 | Horitzontal i vertical |
+| Safata rack | 6 | Gestió d'equips |
 
-## **Funciones**
+## **Funcions**
 
-* Organización del cableado estructurado.  
-* Reducción de interferencias.  
-* Facilitar mantenimiento.  
-* Separación entre red de datos y administración.
+* Organització del cablejat estructurat.  
+* Reducció d'interferències.  
+* Facilitar manteniment.  
+* Separació entre xarxa de dades i administració.
 
 # **Switches**
 
-La infraestructura de red utiliza switches gestionables de nivel empresarial.
+La infraestructura de xarxa utiliza switches gestionables de nivell empresarial.
 
-| Switch | Modelo | Puertos | Función |
+| Switch | Model | Ports | Funció |
 | ----- | ----- | ----- | ----- |
-| Core Switch | Cisco Catalyst 9200 | 48 puertos | Backbone principal |
-| Switch Rack A | Cisco CBS350 | 24 puertos | Servidores producción |
-| Switch Rack B | Cisco CBS350 | 24 puertos | Servicios multimedia |
-| Switch Gestión | TP-Link JetStream | 16 puertos | Administración y monitorización |
+| Core Switch | Cisco Catalyst 9200 | 48 ports | Backbone principal |
+| Switch Rack A | Cisco CBS350 | 24 ports | Servidors producció |
+| Switch Rack B | Cisco CBS350 | 24 ports | Serveis multimedia |
+| Switch Gestió | TP-Link JetStream | 16 ports | Administració i monitoratje |
 
-## **Características de red**
+## **Característiques de xarxa**
 
-VLANs separadas.
+VLANs separades.
 
-QoS para tráfico multimedia.
+QoS per a tràfic multimèdia.
 
 STP/RSTP.
 
 Link Aggregation.
 
-Monitorización SNMP.
+Monitorizació SNMP.
 
-# **Distribución de los racks**
+# **Distribució dels racks**
 
-La distribución física sigue una estructura optimizada para:
+La distribució física segueix una estructura optimizada per a:
 
-* Refrigeración.  
-* Mantenimiento.  
-* Seguridad.  
-* Escalabilidad.
+* Refrigeració.  
+* Mantenimentt.  
+* Seguretat.  
+* Escalabilitat.
 
-## **Organización de racks**
+## **Organizació de racks**
 
-| Rack | Contenido |
+| Rack | Contingut |
 | ----- | ----- |
 | Rack A | Web, SFTP, LDAP |
-| Rack B | Logs y monitorización |
+| Rack B | Logs i monitoratge |
 | Rack C | Audio streaming |
 | Rack D | Video streaming |
 | Rack E | Jitsi Meet |
-| Rack F | Base de datos |
-| Rack G | Switches principales |
+| Rack F | Base de dades |
+| Rack G | Switches principals |
 | Rack H | Patch panels |
 
-# **Distribución interna de un rack**
+# **Distribució interna d'un rack**
 
-## **Ejemplo de estructura de rack estándar**
+## **Exemple d'estructura de rack estàndar**
 
-| Posición U | Elemento |
+| Posició U | Element |
 | ----- | ----- |
 | U1-U2 | Patch Panel |
 | U3 | Switch |
 | U4-U6 | Servidor |
-| U7 | Bandeja organización |
-| U8-U10 | Segundo servidor |
-| U11 | PDU eléctrica |
-| U12 | Espacio ventilación |
+| U7 | Safata organitzaciṕ |
+| U8-U10 | Segon servidor |
+| U11 | PDU elèctrica |
+| U12 | Espai ventilació |
 
-## **Flujo de conexión**
+## **Flux de connexió**
 
 Internet  
   │  
@@ -320,46 +315,49 @@ Core Switch
   ├── Rack E (Jitsi)  
   └── Rack F (Database)
 
-# **Distribución según el plano**
+# **Distribució segons el pla**
 
-Según el plano del CPD:
+Segons el pla del CPD:
 
-* Los racks están distribuidos en filas con pasillos de mantenimiento.  
-* Los sistemas de aire acondicionado (AA) están colocados estratégicamente para mantener flujo frío/caliente.  
-* La zona de control y monitorización está aislada del área principal.  
-* Las cámaras cubren entradas y pasillos críticos.  
-* Los extintores están repartidos en esquinas y zonas centrales.
+* Els racks estan distribuïts en files amb passadissos de manteniment.
 
-Esta distribución permite:
+* Els sistemes d’aire condicionat (AA) estan col·locats estratègicament per mantenir el flux d’aire fred/calent.
 
-* Mejor circulación del aire.  
-* Reducción de puntos calientes.  
-* Acceso rápido para mantenimiento.  
-* Seguridad física reforzada.
+* La zona de control i monitorització està aïllada de l’àrea principal.
+
+* Les càmeres cobreixen les entrades i els passadissos crítics.
+
+* Els extintors estan repartits a les cantonades i a les zones centrals.
+
+Aquesta distribució permet:
+
+* Una millor circulació de l’aire.
+
+* Reducció dels punts calents.
+
+* Accés ràpid per al manteniment.
+
+* Seguretat física reforçada.
 
 ---
 
- **Justificación técnica**
+ **Justificació tècnica**
 
-La infraestructura propuesta cumple:
+L'infraestructura proposa compleix:
 
-* Alta disponibilidad.
+* Alta disponibilitat.
 
-Escalabilidad.
+Escalabilitat.
 
-Seguridad física y lógica.
+Seguretat física y lógica.
 
-Organización profesional del cableado.
+Organizació professional del cablejat.
 
-Compatibilidad con AWS híbrido.
+Compatibilitat amb AWS híbrid.
 
-Optimización energética.
+Optimizació energètica.
 
-### 1.3 Seguretat Física, Lògica i Prevenció de Riscos
-*En aquest apartat s'ha de detallar:*
-- **Física:** Videovigilància, detecció i extinció d'incendis, vies d'evacuació.
-- **Lògica:** Control d'accés (firewalls), monitorització, còpies de seguretat i RAIDS.
-- **Riscos Laborals:** Mesures de prevenció aplicades al recinte del CPD.
+### 1.3 SAI
 
 **Càlcul d’energia per a cada servidor:**
 
@@ -424,12 +422,11 @@ Baterias:
 
 1 SAI principal \+ pack de expansión
 
-### 1.4 Implementació al Núvol (AWS)
-*En aquest apartat s'ha de detallar la infraestructura orientada al núvol:*
-- Servei Web i Transferència de fitxers segur (SFTP).
-- Servei de Directori Actiu (LDAP) per centralitzar l'autenticació.
-- Centralització de logs.
-- Administració remota automatitzada mitjançant Ansible (mínim 2 màquines) amb accés per clau pública/privada (sense contrasenya).
+### 1.4 Seguretat Física, Lògica i Prevenció de Riscos
+*En aquest apartat s'ha de detallar:*
+- **Física:** Videovigilància, detecció i extinció d'incendis, vies d'evacuació.
+- **Lògica:** Control d'accés (firewalls), monitorització, còpies de seguretat i RAIDS.
+- **Riscos Laborals:** Mesures de prevenció aplicades al recinte del CPD.
 
 -  ## Seguretat física:   
   La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció, les principals maneres de vigilància són:  
@@ -501,6 +498,13 @@ Baterias:
 - Il·luminació mitjançant llums LED de baix consum  
 - I apagar els equips no necessaris a les hores punta per no consumeixin.
 
+
+### 1.5 Implementació al Núvol (AWS)
+*En aquest apartat s'ha de detallar la infraestructura orientada al núvol:*
+- Servei Web i Transferència de fitxers segur (SFTP).
+- Servei de Directori Actiu (LDAP) per centralitzar l'autenticació.
+- Centralització de logs.
+- Administració remota automatitzada mitjançant Ansible (mínim 2 màquines) amb accés per clau pública/privada (sense contrasenya).
 ---
 
 ## 2. Serveis de Xarxes i Internet: Àudio i Vídeo (Bloc 0375)
