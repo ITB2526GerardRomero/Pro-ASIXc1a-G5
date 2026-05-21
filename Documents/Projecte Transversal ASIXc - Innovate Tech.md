@@ -902,7 +902,7 @@ Dades de la instancia:
 | Storage | 15 GB |
 | Security Group | HTTP \+ SSH \+ 8000 |
 
-Creció de la instancia:
+Creació de la instància:
 
 ![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio01.png)
 
@@ -920,7 +920,7 @@ INSTALAR ICECAST2:
 
 Editem el fitxer de configuració del servei per a configurar el servei:
 
-Contrasenyas:
+Contrasenyes:
 
 ![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio05.png)
 
@@ -938,7 +938,7 @@ Funcionament del servei:
 
 ![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio09.png)
 
-Per a enviar l’audio a la pàgina utilitza el servei ffmpeg.
+Per enviar l’audio a la pàgina utilitzem el servei ffmpeg.
 
 Instal·lació:
 
@@ -948,7 +948,7 @@ Una vegada descarregat el mp3, utilitzem la comanda següent indicant el audio l
 
 ![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio11.png)
 
-Comprovació de que es pot escoltar l’audio desde la ruta
+Comprovació de que es pot escoltar l’audio desde la ruta:
 
 ![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio12.png)
 
@@ -1013,7 +1013,7 @@ La latència de:
 
 6.5 ms
 
-és excel·lent per serveis en temps real i garanteix una reproducció estable sense talls ni interrupcions.
+És excel·lent per serveis en temps real i garanteix una reproducció estable sense talls ni interrupcions.
 
 # **Relació amb els serveis multimèdia**
 
@@ -1027,9 +1027,9 @@ El servei d’àudio és el menys exigent en consum d’amplada de banda. El bit
 
 La infraestructura implementada es considera plenament acceptable per oferir:
 
-* streaming d’àudio,  
-* serveis multimèdia,  
-* comunicacions en temps real.
+* Streaming d’àudio,  
+* Serveis multimèdia,  
+* Comunicacions en temps real.
 
 Els resultats obtinguts garanteixen estabilitat i qualitat suficient per múltiples clients connectats simultàniament.
 
