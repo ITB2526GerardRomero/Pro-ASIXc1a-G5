@@ -1,5 +1,5 @@
 -  ## Seguretat física:   
-  La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció les principals maneres de vigilància són:  
+  La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció, les principals maneres de vigilància són:  
     
 - Elements d’accés al CPD:
 
