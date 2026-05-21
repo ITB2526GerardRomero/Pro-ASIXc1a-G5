@@ -374,20 +374,20 @@ Optimizació energètica.
 
 **Decidir autonomía:**
 
-Ejemplo:
+Exemple:
 
-* 15 minutos,  
-* 30 minutos,  
+* 15 minuts,  
+* 30 minuts,  
 * 1 hora.
 
-Lo normal en CPDs:
+El normal en CPDs:
 
 * 15-30 min.
 
-Porque:
+Perquè:
 
-* luego entra generador,  
-* o se apaga controladamente.
+* Després entra el generador,  
+* o s'apaga controladament.
 
 **Escollir SAI:**
 
@@ -398,35 +398,31 @@ Un SAI de:
 
 **Objectiu:**
 
-Mantenir el CPD funcionan, després d’un tall electric, durant 20 minuts.
+Mantenir el CPD funcionant, després d’un tall elèctric, durant 20 minuts.
 
 **Solució profesional:**
 
 **SAI principal:**
 
-Modelo:
+Model:
 
 * APC Smart-UPS 3000VA.
 
-Capacidad:
+Capacitat:
 
 * 2700W.
 
 Autonomía:
 
-* \~20-25 minutos a carga media.
+* \~20-25 minuts a càrrega mitja.
 
-Baterias:
+Bateries:
 
-2 módulos de baterías redundantes
+2 mòduls de bateries redundants.
 
-1 SAI principal \+ pack de expansión
+1 SAI principal \+ pack de expansió.
 
 ### 1.4 Seguretat Física, Lògica i Prevenció de Riscos
-*En aquest apartat s'ha de detallar:*
-- **Física:** Videovigilància, detecció i extinció d'incendis, vies d'evacuació.
-- **Lògica:** Control d'accés (firewalls), monitoratge, còpies de seguretat i RAIDS.
-- **Riscos Laborals:** Mesures de prevenció aplicades al recinte del CPD.
 
 -  ## Seguretat física:   
   La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció, les principals maneres de vigilància són:  
