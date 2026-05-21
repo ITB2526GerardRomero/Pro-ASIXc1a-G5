@@ -8,6 +8,14 @@ Aquest document unifica les diferents fases del projecte de transformació tecno
 
 Per tal de garantir la continuïtat del negoci i donar suport als serveis multimèdia, la primera fase del projecte se centra en el disseny i implementació d'un Centre de Processament de Dades (CPD) eficient, segur i sostenible.
 
+### 1.1 Ubicació i Infraestructura Física
+*En aquest apartat s'ha de detallar:*
+- Situació física de la sala a l'edifici i sistemes de climatització (temperatura, humitat i neteja de l'aire).
+- Mesures d'ocultació de la sala, distribució del cablejat, terra i sostre tècnic.
+- Planells i diagrames de l'espai.
+
+**Ubicació Física del CPD \- Innovate Tech**
+
 **1- Situació de la sala a l’edifici**
 
 *Innova Tech* es una empresa de consultoría tecnológica i desenvolupament de software:
@@ -193,17 +201,165 @@ Normatives aplicades:
 - **TIA-942:** Infraestructura de telecomunicacions per a CPDs  
 - **ISO/IEC 11801:** Cablejat genèric
 
-### 1.1 Ubicació i Infraestructura Física
-*En aquest apartat s'ha de detallar:*
-- Situació física de la sala a l'edifici i sistemes de climatització (temperatura, humitat i neteja de l'aire).
-- Mesures d'ocultació de la sala, distribució del cablejat, terra i sostre tècnic.
-- Planells i diagrames de l'espai.
-
 ### 1.2 Infraestructura IT i Elèctrica
 *En aquest apartat s'ha de detallar:*
 - **Estructura:** Distribució d'un mínim de 2 racks.
 - **Hardware IT:** Servidors (número i model), patch panels i switches.
 - **Electricitat:** Sistemes d'alimentació redundant i càlcul de components/bateries SAIS per assegurar l'autonomia elèctrica.
+
+
+## **Infraestructura IT**
+
+A continuació es descriura la infrastructura IT proposada per al CPD de Inova Tech basat en el pla de distribució presentat.
+
+**Pla general del CPD**
+
+El CPD disposa d'una superfície de 20x20 metres, organitzada en:
+
+- Zona principal de racks de servidors.  
+- Zona de control i monitoratge.  
+- Sistemes de climatització redundants.  
+- Seguretat física mitjançant cambres i extintors.  
+- Passadissos optimitzats per a manteniment i flux d'aire.
+
+| Servidor | Función | Modelo Propuesto | CPU | RAM | Almacenamiento |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| WEB-SFTP | Web \+ SFTP | Dell PowerEdge R350 | 4 vCPU | 8 GB | 250 GB SSD |
+| LDAP-AD | Directorio Activo | Dell PowerEdge R350 | 4 vCPU | 8 GB | 250 GB SSD |
+| LOGS | Centralización de logs | HPE ProLiant DL360 | 4 vCPU | 16 GB | 500 GB SSD |
+| AUDIO | Streaming de audio | Dell PowerEdge R250 | 2 vCPU | 4 GB | 120 GB SSD |
+| VIDEO | Streaming de vídeo | HPE ProLiant DL380 | 8 vCPU | 16 GB | 1 TB SSD |
+| JITSI | Videoconferencias | Dell PowerEdge R550 | 8 vCPU | 16 GB | 500 GB SSD |
+| DATABASE | Base de datos | HPE ProLiant DL360 | 8 vCPU | 32 GB | RAID 1 SSD |
+| ANSIBLE | Automatización | Dell PowerEdge R250 | 2 vCPU | 4 GB | 120 GB SSD |
+
+# **Patch Panels**
+
+Se utilizarán patch panels Cat6A para la distribución estructurada del cableado.
+
+## **Características**
+
+| Elemento | Cantidad | Características |
+| ----- | ----- | ----- |
+| Patch Panel Cat6A | 4 | 24 puertos RJ45 |
+| Patch Panel Fibra | 2 | LC-LC multimodo |
+| Organizadores de cable | 8 | Horizontal y vertical |
+| Bandejas rack | 6 | Gestión de equipos |
+
+## **Funciones**
+
+* Organización del cableado estructurado.  
+* Reducción de interferencias.  
+* Facilitar mantenimiento.  
+* Separación entre red de datos y administración.
+
+# **Switches**
+
+La infraestructura de red utiliza switches gestionables de nivel empresarial.
+
+| Switch | Modelo | Puertos | Función |
+| ----- | ----- | ----- | ----- |
+| Core Switch | Cisco Catalyst 9200 | 48 puertos | Backbone principal |
+| Switch Rack A | Cisco CBS350 | 24 puertos | Servidores producción |
+| Switch Rack B | Cisco CBS350 | 24 puertos | Servicios multimedia |
+| Switch Gestión | TP-Link JetStream | 16 puertos | Administración y monitorización |
+
+## **Características de red**
+
+VLANs separadas.
+
+QoS para tráfico multimedia.
+
+STP/RSTP.
+
+Link Aggregation.
+
+Monitorización SNMP.
+
+# **Distribución de los racks**
+
+La distribución física sigue una estructura optimizada para:
+
+* Refrigeración.  
+* Mantenimiento.  
+* Seguridad.  
+* Escalabilidad.
+
+## **Organización de racks**
+
+| Rack | Contenido |
+| ----- | ----- |
+| Rack A | Web, SFTP, LDAP |
+| Rack B | Logs y monitorización |
+| Rack C | Audio streaming |
+| Rack D | Video streaming |
+| Rack E | Jitsi Meet |
+| Rack F | Base de datos |
+| Rack G | Switches principales |
+| Rack H | Patch panels |
+
+# **Distribución interna de un rack**
+
+## **Ejemplo de estructura de rack estándar**
+
+| Posición U | Elemento |
+| ----- | ----- |
+| U1-U2 | Patch Panel |
+| U3 | Switch |
+| U4-U6 | Servidor |
+| U7 | Bandeja organización |
+| U8-U10 | Segundo servidor |
+| U11 | PDU eléctrica |
+| U12 | Espacio ventilación |
+
+## **Flujo de conexión**
+
+Internet  
+  │  
+Firewall  
+  │  
+Core Switch  
+  ├── Rack A (Web/SFTP/LDAP)  
+  ├── Rack B (Logs)  
+  ├── Rack C (Audio)  
+  ├── Rack D (Video)  
+  ├── Rack E (Jitsi)  
+  └── Rack F (Database)
+
+# **Distribución según el plano**
+
+Según el plano del CPD:
+
+* Los racks están distribuidos en filas con pasillos de mantenimiento.  
+* Los sistemas de aire acondicionado (AA) están colocados estratégicamente para mantener flujo frío/caliente.  
+* La zona de control y monitorización está aislada del área principal.  
+* Las cámaras cubren entradas y pasillos críticos.  
+* Los extintores están repartidos en esquinas y zonas centrales.
+
+Esta distribución permite:
+
+* Mejor circulación del aire.  
+* Reducción de puntos calientes.  
+* Acceso rápido para mantenimiento.  
+* Seguridad física reforzada.
+
+---
+
+ **Justificación técnica**
+
+La infraestructura propuesta cumple:
+
+* Alta disponibilidad.
+
+Escalabilidad.
+
+Seguridad física y lógica.
+
+Organización profesional del cableado.
+
+Compatibilidad con AWS híbrido.
+
+Optimización energética.
 
 ### 1.3 Seguretat Física, Lògica i Prevenció de Riscos
 *En aquest apartat s'ha de detallar:*
@@ -211,12 +367,145 @@ Normatives aplicades:
 - **Lògica:** Control d'accés (firewalls), monitorització, còpies de seguretat i RAIDS.
 - **Riscos Laborals:** Mesures de prevenció aplicades al recinte del CPD.
 
+**Càlcul d’energia per a cada servidor:**
+
+| Equip | Consum aproximat |
+| :---- | :---- |
+| 8 servidors | 8 x 200W \= 1600W |
+| Switches | 150 W |
+| Firewall | 100 W |
+| NAS/backup | 400 W |
+
+**Total:**
+
+2600W
+
+**Decidir autonomía:**
+
+Ejemplo:
+
+* 15 minutos,  
+* 30 minutos,  
+* 1 hora.
+
+Lo normal en CPDs:
+
+* 15-30 min.
+
+Porque:
+
+* luego entra generador,  
+* o se apaga controladamente.
+
+**Escollir SAI:**
+
+Un SAI de:
+
+* 3000VA  
+* Normalment soporta \~2700W.
+
+**Objectiu:**
+
+Mantenir el CPD funcionan, després d’un tall electric, durant 20 minuts.
+
+**Solució profesional:**
+
+**SAI principal:**
+
+Modelo:
+
+* APC Smart-UPS 3000VA.
+
+Capacidad:
+
+* 2700W.
+
+Autonomía:
+
+* \~20-25 minutos a carga media.
+
+Baterias:
+
+2 módulos de baterías redundantes
+
+1 SAI principal \+ pack de expansión
+
 ### 1.4 Implementació al Núvol (AWS)
 *En aquest apartat s'ha de detallar la infraestructura orientada al núvol:*
 - Servei Web i Transferència de fitxers segur (SFTP).
 - Servei de Directori Actiu (LDAP) per centralitzar l'autenticació.
 - Centralització de logs.
 - Administració remota automatitzada mitjançant Ansible (mínim 2 màquines) amb accés per clau pública/privada (sense contrasenya).
+
+-  ## Seguretat física:   
+  La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció les principals maneres de vigilància són:  
+    
+- Elements d’accés al CPD:
+
+  Poder accedir a la sala del CPD només amb unes claus, targetes especials d’identificació o un factor de doble autenticació per a usuaris importants a l’empresa.
+
+
+- Càmeres de seguretat i miralls:
+
+  Les càmeres de seguretat serveixen per poder rastrejar qui entra a la sala del CPD, que fa dintre d’aquesta i durant quins períodes de temps ha estat dintre de la sala. El cas dels miralls convexos serveix per ajudar a les càmeres a veure el que serien punts cecs sense elles.
+
+
+- Sistemes de prevenció, detecció i extinció d’incendis:
+
+  Per a prevenir cap incendi, principalment tenir climatització, ja que aquest permet que el CPD no es sobrecalenti i tingui problemes de temperatura, en qualsevol cas, també tenir un termòmetre per veure tant la temperatura com l’humetat.
+
+  Per poder detectar en cas de haver-hi algun objecte incendiat o que el propi CPD estigui en llames utilizar detectors de fum i detectors de calentura d’alta sensibilitat, com dit anteriorment un termòmetre.
+
+  Per un altre part per a poder extingir l’incendi, tenir extintors de C02, ja que són els únics que van millor per apagar incendis electrics, el que és en aquest cas.
+
+
+- Vies d’evacuació:
+
+  Per a poder evacuar a la gent que hi hagi dintre, el més recomanat és posar una sortid d’incendis a l’altra costat de la sala, millor si aquesta es troba a lluny dels servidors del CPD, per a que no hi hagin objectes que poden interrompre el camí a aquesta.
+
+- ## Seguretat lògica:  
+  En canvi la seguretat lògica ha de ser més rigorosa, degut a que els servidors en un CPD contenen informació més valios, és per això que aplicarem la següent seguretat:
+
+- Restricció d’accés per autorització:
+
+  Només es permet l’accés als servidors a usuaris específics i dels quals només es poden ficar certes persones amb les restriccions necessàries, i amb certs permisos.
+
+
+- Firewalls:
+
+  El firewall clarament ha d’estar actiu per tot els ports i només es pot permetre l’accés desde certs ordinadors i certs ports que seràn els que utilitzaran els ordinadors per poder conectarse a aquest. És a dir, una filtració de ports i protocols.
+
+
+- Monitorització:
+
+  Programes de monitorització i recull de logs per poder veure, quin error succeeix, quan succeeix, i per què succeeix. En tot cas el programa de monitoratge, envia un missatge als ordinadors centrals quan ocurreix algun error.
+
+
+- ## Còpies de seguretat:
+
+  És faria principalment una còpia de seguretat base cada diumenge per a que, si es fastidia alguna maquina, o es perd alguna cosa entre les màquines poder recuperarla. I a part fer copies diferencials diàries per poder fer un backup en el cas de que passi alguna cosa, d’un dia al altre.
+
+
+- RAIDs:
+
+  En el cas de le RAIDs, el que pensem que és més recomanable és fer una RAID 0+1, ja que en cas d'haver algun problema les dades es poden recuperar de manera eficaç i ràpida.
+
+- Prevenció de riscos laborals:  
+  En quant a prevenció de riscos laborals, volem que els treballadors també portin seguretat, tant per a ells, com per al CPD.  
+    
+  Principalment el terra i la roba que porten els treballadors han de ser aïllant d’electricitat per a que els treballadors no siguin electrocutats i els servidors no puguin patir cap tipus sobrecàrrega.  
+    
+  També es pot tenir en compte els riscos ergonòmics, per exemple, a l’hora de portar els servidors, o els racs, com tenen un alt pes el millor és utilitzar carros amb els que es puguin portars aquests aparats  
+    
+  I podem evitar riscos ambientals, per exemple posar ventiladors per a poder evitar una temperatura molt alta i que aixì sigui estable, també es poden aplicar auriculars per controlar el soroll en el cas dels treballadors.  
+    
+    
+- ## Maneres de fer això més sostenible:  
+  Per poder fer que el CPD sigui sostenible es poden aplicar maneres, com per exemple:  
+- Instal·lació de plaques solars per poder alimentar aixì el CPD.  
+- Reutilització de l’aire utilitzat, sempre i quan s’utilitzi un filtre per poder netejar aquest aire, i aixì re-utilitzar-ho.  
+- Il·luminació mitjançant llums LED de baix consum  
+- I apagar els equips no necessaris a les hores punta per no consumeixin.
 
 ---
 
