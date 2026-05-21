@@ -505,6 +505,276 @@ Baterias:
 - Servei de Directori Actiu (LDAP) per centralitzar l'autenticació.
 - Centralització de logs.
 - Administració remota automatitzada mitjançant Ansible (mínim 2 màquines) amb accés per clau pública/privada (sense contrasenya).
+  
+## Ansible (1,5p)  
+Primer de tot, per a què volem un servidor Ansible a part, el tenim ja que és el cervell de la nostra infraestructura, per començar en lloc d'estar entrant via SSH d'un en un als nostres servidors per configurar-los a mà, llencem els playbooks des d'Ansible i podrà treballar en totes les màquines alhora.  
+Tindrem en aquest servidor fitxers .yml que són el backup dels nostres servidors, si el servidor web o syslog es trenquen ara mateix, podrem restaurar tota la instal·lació i configuració en menys de 30 segons.  
+A més Ansible no necessita instal·lar programes pesats a les màquines dels nostres companys, es connecta via SSH que ja ve en la instal·lació fa els canvis i se'n va.
+
+1.INSTAL·LACIÓ D'INSTÀNCIA  
+
+Primer de tot hauré d'iniciar el Launch d'AWS.  
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/1-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/2-ansible.png)
+
+Entrarem a AWS i seguidament anirem a l'apartat EC2.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/3-ansible.png)  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/4-ansible.png)  
+Una vegada aquí anirem a l'apartat d'“Instances” i llançarem una instància amb l'opció “Launch instances”.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/5-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/6-ansible.png)
+Llançarem la instància en el sistema operatiu Ubuntu Server 24.04, amb el nom ANSIBLE.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/7-ansible.png)
+Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/8-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/9-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/10-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/11-ansible.png)
+I amb tot configurat podrem llançar la nostra instància.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/12-ansible.png)
+Podem veure com efectivament s'ha creat correctament.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/13-ansible.png)
+Una vegada creada, el primer que farem serà assignar-li la IP elàstica perquè sigui estàtica i així no canviï de IP cada cert temps.  
+Per a això ens dirigirem al menú de l'esquerra.
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/14-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/15-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/16-ansible.png)
+Una vegada creada i confirmant la seva correcta configuració, la hi assignarem al nostre servidor ansible anteriorment creat.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/17-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/18-ansible.png)
+Veurem que s'ha associat correctament anant a les instàncies i veient la IP elàstica del nostre servidor.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/19-ansible.png)
+Una vegada assignat hauré de connectar-me al servidor Ansible via SSH, però primer de tot hauré de canviar els permisos de la clau pública si inicio des d'Ubuntu.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/20-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/21-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/22-ansible.png)
+Copio el comando para luego utilizarlo, tendre que cambiar los permisos de la clave.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/23-ansible.png)
+Ahora si pegaremos el comando antes copiado  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/24-ansible.png)
+Una vez entrado a la máquina cambiaremos tanto el hostname como la creación del usuario administracio.  
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/25-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/26-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/27-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/28-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/29-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/30-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/31-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/32-ansible.png)
+
+Actualizo la máquina  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/33-ansible.png)
+Y instalo ansible
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/34-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/35-ansible.png)
+Creación de scripts.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/36-ansible.png)
+Primero creo las claves de las maquinas
+![image1]La del syslog  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/37-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/38-ansible.png)
+La de la web  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/39-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/40-ansible.png) 
+Y mi clave propia  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/41-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/42-ansible.png)
+Le cambiare los permisos a ls claves.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/43-ansible.png)
+Creo el archivo hosts.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/44-ansible.png)
+Desactivar la verificación de claves en Ansible.  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/45-ansible.png)
+Creación de scripts  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/46-ansible.png)
+Primero el web  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/47-ansible.png)
+Justificacion:  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/48-ansible.png)
+Luego el de syslog  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/49-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/50-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/51-ansible.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/52-ansible.png)
+
+## Servei de directori actiu per a guardar els usuaris.
+
+Avanç de llançar la EC2, necesiten crear una clave SSH, per poder accedir a la máquina.
+
+![Clau LDAP](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/Clau-ldap.png)
+
+Una vegada creades el parell de claus, llencem la instancia del servidor amb les següents característiques:
+
+![Instància AWS 1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/instancia1..png)
+
+![Instància AWS 2](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/instancia2.png)
+
+![Instància AWS 3](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/instancia3.png)
+
+![Instància AWS 4](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/instancia4.png)
+
+Ens connectem a la maquina via SSH.
+
+![Accés SSH](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ssh-acceder.png)
+
+**Centralització d’usuaris.**
+
+Fixar el hostname.
+
+![Hostname](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/hostname.png)
+
+![Fitxer etc/hosts](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/etc-hosts.png)
+
+**Instal·lació OpenLDAP.**
+
+Utilitzem la comanda “sudo apt install \-y slapd ldap-utils”.
+
+![Instal·lació slapd](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/install-slapd.png)
+
+Configurem la contrasenya de l’administrador
+
+![Admin contrasenya](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/admin-contra.png)
+
+Verifiquem que s’ha fet la instal·lació correctament
+
+![Status servei](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/status.png)
+
+**Configuracions de Slapd.**
+
+![Slapd evidència 1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/slapd1.png)
+
+![Slapd evidència 2](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/slapd2.png)
+
+![Slapd evidència 3](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/slapd3.png)
+
+![Slapd evidència 4](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/slapd4.png)
+
+![Slapd evidència 5](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/slapd5.png)
+
+![Slapd evidència 6](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/slapd6.png)
+
+Comprovació
+
+![Comprovació slapd](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/comprobslapd.png)
+
+**Creació d'usuari administrador, accés amb clau publica/privada.**
+
+Fem la configuració necessària al fitxer, "sudo nano /etc/ssh/sshd_config".
+
+![Admin SSH 1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminssh1.png)
+
+![Admin SSH 2](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminssh2.png)
+
+Comprovació amb l'usurai administració.
+
+![Admin Login](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminlogin.png)
+
+## Implementació al núvol AWS - Web/SFTP
+
+Primer, crearem un grup de seguretat, que permet tot el tràfic per aixì poder connectar-nos a la nostra pròpia màquina:
+
+![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web01.png)
+
+I comencem a crear la màquina, amb el nom pertinent i principalment escollim una AMI gratuïta ja que si no els terminen ràpidament:  
+![Segona captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web02.png)
+
+I com a targeta utilitzarem la t3.micro, ja que també és gratuïta:  
+![Tercera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web03.png)
+
+Utilitzarem una nova par de claus, ja que aixì podem identificar bé la màquina i ficar-nos a ella:  
+![Quarta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web04.png)
+
+I li ficarem al grup de seguretat creat anteriorment:  
+![Quinta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web05.png)
+
+Tot seguit a això fem ssh per ficar-nos a la màquina:  
+![Sexta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web06.png)
+
+Ara que ens hem ficat, crearem l'usuari de administració:  
+![Septima captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web07.png)
+
+I tot seguit li canviem la contrasenya i li afegim al grup root:  
+![Octava captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web08.png) 
+![Novena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web09.png)
+
+I les claus de l’usuari ec2 les copiem a la home de l'usuari “administracio”, ja que a partir d’ara ens ficarem a aquest:  
+![Dècima captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web10.png)
+
+I verifiquem que podem ficar-nos:  
+![Decimaprimera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web11.png)
+
+Després d’això anem amb l’instal·lació de nginx:  
+![Decimasegona captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web12.png)
+
+I fem que el servei inici quan inici la màquina:  
+![Tretzena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web13.png)
+
+I per últim pel SFTP, la màquina ja ve amb SFTP per defecte, i ho podem verificar amb l\< comanda pertinent:  
+![Catorzena](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web14.png)
+
+També podem verificar que funciona NGINX posant l'enllaç públic al navegador:
+![Quinzena](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web15.png)
+
+## AWS Syslog01
+
+Creació de la instancia:
+
+| Configuració | Valor |
+| :---- | :---- |
+| Nom | logs01 |
+| SO | Ubuntu Server 24.04 |
+| Tipo | t3.micro |
+| IP privada | 10.0.1.30 |
+| Seguretat | Port 514 obert |
+
+![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog01.png)
+
+Una vegada creades les claus pem., les guardem a la carpeta compartida del drive del grup i accedim a la maquina:
+
+![Segona captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog02.png)
+
+Ara instal·lem el servei que ens permetra realitzar els logs de tots els servidors:
+
+![Tercera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog03.png)
+
+Ara editem el fitxer de configuració de logs del servidor /etc/rsyslog.conf i descomentarem algunas líneas:
+
+![Cuarta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog04.png)
+
+Ara crearem les carpetes per als logs remots en el fitxer /etc/rsyslog.d/remote.conf :
+
+![5 captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog05.png)
+
+Això fa:
+
+- una carpeta per servidor.  
+- logs separats automàticament.
+
+Reiniciem el servei:
+
+![Sisena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog06.png)
+
+Per a la comprovació caldra instalar el rsyslog en els servidors i en el fitxer /etc/rsyslog.conf afegir la linea *.* @18.212.86.171:514 i despres reiniciar client sudo systemctl restart rsyslog i finalment veure en el cd /var/log/remote web01/ ldap01/ db01/
+
+
+Finalment creem l'usuari administracio:
+
+![Sisena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog08.png)
+
+Comprovacio del funcionament dels logs:
+
+![Sisena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog09.png)
+
 ---
 
 ## 2. Serveis de Xarxes i Internet: Àudio i Vídeo (Bloc 0375)
