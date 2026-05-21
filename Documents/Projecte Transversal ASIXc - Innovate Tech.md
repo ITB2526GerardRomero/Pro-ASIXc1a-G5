@@ -425,7 +425,7 @@ Baterias:
 ### 1.4 Seguretat Física, Lògica i Prevenció de Riscos
 *En aquest apartat s'ha de detallar:*
 - **Física:** Videovigilància, detecció i extinció d'incendis, vies d'evacuació.
-- **Lògica:** Control d'accés (firewalls), monitorització, còpies de seguretat i RAIDS.
+- **Lògica:** Control d'accés (firewalls), monitoratge, còpies de seguretat i RAIDS.
 - **Riscos Laborals:** Mesures de prevenció aplicades al recinte del CPD.
 
 -  ## Seguretat física:   
@@ -438,24 +438,24 @@ Baterias:
 
 - Càmeres de seguretat i miralls:
 
-  Les càmeres de seguretat serveixen per poder rastrejar qui entra a la sala del CPD, que fa dintre d’aquesta i durant quins períodes de temps ha estat dintre de la sala. El cas dels miralls convexos serveix per ajudar a les càmeres a veure el que serien punts cecs sense elles.
+  Les càmeres de seguretat serveixen per poder rastrejar qui entra a la sala del CPD, que fa dintre d’aquesta i durant quins períodes de temps ha estat dintre de la sala. El cas dels miralls convexos serveix per ajudar les càmeres a veure el que serien punts cecs sense elles.
 
 
 - Sistemes de prevenció, detecció i extinció d’incendis:
 
-  Per a prevenir cap incendi, principalment tenir climatització, ja que aquest permet que el CPD no es sobrecalenti i tingui problemes de temperatura, en qualsevol cas, també tenir un termòmetre per veure tant la temperatura com l’humetat.
+  Per a prevenir cap incendi, principalment tenir climatització, ja que aquest permet que el CPD no se s'obreescalfi  i tingui problemes de temperatura, en qualsevol cas, també tenir un termòmetre per veure tant la temperatura com l’humitat.
 
-  Per poder detectar en cas de haver-hi algun objecte incendiat o que el propi CPD estigui en llames utilizar detectors de fum i detectors de calentura d’alta sensibilitat, com dit anteriorment un termòmetre.
+  Per poder detectar en cas d'haver-hi algun objecte incendiat o que el mateix CPD estigui en llames utilitzar detectors de fum i detectors de calentor d’alta sensibilitat, com dit anteriorment un termòmetre.
 
-  Per un altre part per a poder extingir l’incendi, tenir extintors de C02, ja que són els únics que van millor per apagar incendis electrics, el que és en aquest cas.
+  Per un altra part per a poder extingir l’incendi, tenir extintors de C02, ja que són els únics que van millor per apagar incendis elèctrics, el que és en aquest cas.
 
 
 - Vies d’evacuació:
 
-  Per a poder evacuar a la gent que hi hagi dintre, el més recomanat és posar una sortid d’incendis a l’altra costat de la sala, millor si aquesta es troba a lluny dels servidors del CPD, per a que no hi hagin objectes que poden interrompre el camí a aquesta.
+  Per a poder evacuar a la gent que hi hagi dintre, el més recomanat és posar una sortida d’incendis a l’altre costat de la sala, millor si aquesta es troba a lluny dels servidors del CPD, perquè no hi hagi objectes que poden interrompre el camí a aquesta.
 
 - ## Seguretat lògica:  
-  En canvi la seguretat lògica ha de ser més rigorosa, degut a que els servidors en un CPD contenen informació més valios, és per això que aplicarem la següent seguretat:
+  En canvi, la seguretat lògica ha de ser més rigorosa, ja que els servidors en un CPD contenen informació més valuós, és per això que aplicarem la següent seguretat:
 
 - Restricció d’accés per autorització:
 
@@ -464,49 +464,44 @@ Baterias:
 
 - Firewalls:
 
-  El firewall clarament ha d’estar actiu per tot els ports i només es pot permetre l’accés desde certs ordinadors i certs ports que seràn els que utilitzaran els ordinadors per poder conectarse a aquest. És a dir, una filtració de ports i protocols.
+  El firewall clarament ha d’estar actiu per tots els ports i només es pot permetre l’accés des de certs ordinadors i certs ports que seran els que utilitzaran els ordinadors per poder conectarse a aquest. És a dir, una filtració de ports i protocols.
 
 
-- Monitorització:
+- Mointoratge:
 
-  Programes de monitorització i recull de logs per poder veure, quin error succeeix, quan succeeix, i per què succeeix. En tot cas el programa de monitoratge, envia un missatge als ordinadors centrals quan ocurreix algun error.
+  Programes de monitoratge i recull de logs per poder veure, quin error succeeix, quan succeeix, i per què succeeix. En tot cas el programa de monitoratge, envia un missatge als ordinadors centrals quan ocorre algun error.
 
 
 - ## Còpies de seguretat:
 
-  És faria principalment una còpia de seguretat base cada diumenge per a que, si es fastidia alguna maquina, o es perd alguna cosa entre les màquines poder recuperarla. I a part fer copies diferencials diàries per poder fer un backup en el cas de que passi alguna cosa, d’un dia al altre.
+  Es fària principalment una còpia de seguretat base cada diumenge perquè, si es fastigueja alguna màquina, o es perd alguna cosa entre les màquines poder recuperar-la. I a part fer còpies diferencials diàries per poder fer un backup en el cas que passi alguna cosa, d’un dia l'altre.
 
 
 - RAIDs:
 
-  En el cas de le RAIDs, el que pensem que és més recomanable és fer una RAID 0+1, ja que en cas d'haver algun problema les dades es poden recuperar de manera eficaç i ràpida.
+  En el cas de les RAIDs, el que pensem que és més recomanable és fer una RAID 0+1, ja que en cas d'haver-hi algun problema les dades es poden recuperar de manera eficaç i ràpida.
 
 - Prevenció de riscos laborals:  
-  En quant a prevenció de riscos laborals, volem que els treballadors també portin seguretat, tant per a ells, com per al CPD.  
+  Quant a prevenció de riscos laborals, volem que els treballadors també portin seguretat, tant per a ells, com per al CPD.  
     
-  Principalment el terra i la roba que porten els treballadors han de ser aïllant d’electricitat per a que els treballadors no siguin electrocutats i els servidors no puguin patir cap tipus sobrecàrrega.  
+  Principalment, el terra i la roba que porten els treballadors han de ser aïllants d’electricitat perquè els treballadors no siguin electrocutats i els servidors no puguin patir cap tipus sobrecàrrega.  
     
-  També es pot tenir en compte els riscos ergonòmics, per exemple, a l’hora de portar els servidors, o els racs, com tenen un alt pes el millor és utilitzar carros amb els que es puguin portars aquests aparats  
+  També es pot tenir en compte els riscos ergonòmics, per exemple, a l’hora de portar els servidors, o els racs, com tenen un alt pes el millor és utilitzar carros amb els quals es puguin portar aquests aparats.
     
-  I podem evitar riscos ambientals, per exemple posar ventiladors per a poder evitar una temperatura molt alta i que aixì sigui estable, també es poden aplicar auriculars per controlar el soroll en el cas dels treballadors.  
+  I podem evitar riscos ambientals, per exemple posar ventiladors per a poder evitar una temperatura molt alta i que així sigui estable, també es poden aplicar auriculars per controlar el soroll en el cas dels treballadors.  
     
     
 - ## Maneres de fer això més sostenible:  
   Per poder fer que el CPD sigui sostenible es poden aplicar maneres, com per exemple:  
-- Instal·lació de plaques solars per poder alimentar aixì el CPD.  
-- Reutilització de l’aire utilitzat, sempre i quan s’utilitzi un filtre per poder netejar aquest aire, i aixì re-utilitzar-ho.  
+- Instal·lació de plaques solars per poder alimentar així el CPD.  
+- Reutilització de l’aire utilitzat, sempre que es faci servir un filtre per poder netejar aquest aire, i així reutilitzar-ho.  
 - Il·luminació mitjançant llums LED de baix consum  
-- I apagar els equips no necessaris a les hores punta per no consumeixin.
+- I apagar els equips no necessaris a les hores punta per què no consumeixin.
 
 
 ### 1.5 Implementació al Núvol (AWS)
-*En aquest apartat s'ha de detallar la infraestructura orientada al núvol:*
-- Servei Web i Transferència de fitxers segur (SFTP).
-- Servei de Directori Actiu (LDAP) per centralitzar l'autenticació.
-- Centralització de logs.
-- Administració remota automatitzada mitjançant Ansible (mínim 2 màquines) amb accés per clau pública/privada (sense contrasenya).
-  
-## Ansible (1,5p)  
+ 
+## Ansible 
 Primer de tot, per a què volem un servidor Ansible a part, el tenim ja que és el cervell de la nostra infraestructura, per començar en lloc d'estar entrant via SSH d'un en un als nostres servidors per configurar-los a mà, llencem els playbooks des d'Ansible i podrà treballar en totes les màquines alhora.  
 Tindrem en aquest servidor fitxers .yml que són el backup dels nostres servidors, si el servidor web o syslog es trenquen ara mateix, podrem restaurar tota la instal·lació i configuració en menys de 30 segons.  
 A més Ansible no necessita instal·lar programes pesats a les màquines dels nostres companys, es connecta via SSH que ja ve en la instal·lació fa els canvis i se'n va.
