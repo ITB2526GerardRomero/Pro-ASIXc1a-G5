@@ -5,9 +5,13 @@ Tindrem en aquest servidor fitxers .yml que són el backup dels nostres servidor
 A més Ansible no necessita instal·lar programes pesats a les màquines dels nostres companys, es connecta via SSH que ja ve en la instal·lació fa els canvis i se'n va.
 
 1.INSTAL·LACIÓ D'INSTÀNCIA  
+
 Primer de tot hauré d'iniciar el Launch d'AWS.  
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/1-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/2-ansible.png)
+
 Entrarem a AWS i seguidament anirem a l'apartat EC2.  
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/3-ansible.png)  
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/4-ansible.png)  
@@ -44,14 +48,23 @@ Copio el comando para luego utilizarlo, tendre que cambiar los permisos de la cl
 Ahora si pegaremos el comando antes copiado  
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/24-ansible.png)
 Una vez entrado a la máquina cambiaremos tanto el hostname como la creación del usuario administracio.  
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/25-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/26-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/27-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/28-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/29-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/30-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/31-ansible.png)
+
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/32-ansible.png)
+
 Actualizo la máquina  
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/33-ansible.png)
 Y instalo ansible
