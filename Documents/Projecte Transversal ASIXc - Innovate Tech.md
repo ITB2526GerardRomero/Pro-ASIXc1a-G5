@@ -515,41 +515,72 @@ Primer de tot hauré d'iniciar el Launch d'AWS.
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/2-ansible.png)
 
 Entrarem a AWS i seguidament anirem a l'apartat EC2.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/3-ansible.png)  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/4-ansible.png)  
+
 Una vegada aquí anirem a l'apartat d'“Instances” i llançarem una instància amb l'opció “Launch instances”.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/5-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/6-ansible.png)
+
 Llançarem la instància en el sistema operatiu Ubuntu Server 24.04, amb el nom ANSIBLE.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/7-ansible.png)
+
 Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau.  
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/8-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/9-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/10-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/11-ansible.png)
 I amb tot configurat podrem llançar la nostra instància.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/12-ansible.png)
+
 Podem veure com efectivament s'ha creat correctament.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/13-ansible.png)
+
 Una vegada creada, el primer que farem serà assignar-li la IP elàstica perquè sigui estàtica i així no canviï de IP cada cert temps.  
 Per a això ens dirigirem al menú de l'esquerra.
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/14-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/15-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/16-ansible.png)
+
 Una vegada creada i confirmant la seva correcta configuració, la hi assignarem al nostre servidor ansible anteriorment creat.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/17-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/18-ansible.png)
+
 Veurem que s'ha associat correctament anant a les instàncies i veient la IP elàstica del nostre servidor.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/19-ansible.png)
+
 Una vegada assignat hauré de connectar-me al servidor Ansible via SSH, però primer de tot hauré de canviar els permisos de la clau pública si inicio des d'Ubuntu.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/20-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/21-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/22-ansible.png)
-Copio el comando para luego utilizarlo, tendre que cambiar los permisos de la clave.  
+
+Copio la commanda per després utilitzar-la, encara això he de canviar els permisos de la clau.
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/23-ansible.png)
-Ahora si pegaremos el comando antes copiado  
+
+Ara si, peguem la comanda copiada enteriorment.
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/24-ansible.png)
-Una vez entrado a la máquina cambiaremos tanto el hostname como la creación del usuario administracio.  
+
+Una vegada dins de la màquina cambien tant el hostname, com la creació de l'usuario "administracio".
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/25-ansible.png)
 
@@ -567,40 +598,74 @@ Una vez entrado a la máquina cambiaremos tanto el hostname como la creación de
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/32-ansible.png)
 
-Actualizo la máquina  
+Actualitzo la màquina.
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/33-ansible.png)
-Y instalo ansible
+
+I instal·lo l'ansible.
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/34-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/35-ansible.png)
-Creación de scripts.  
+
+Creació de scripts.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/36-ansible.png)
-Primero creo las claves de las maquinas
-![image1]La del syslog  
+
+Primer vaig a crear les claus de les màquines.
+
+La del syslog  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/37-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/38-ansible.png)
+
 La de la web  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/39-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/40-ansible.png) 
-Y mi clave propia  
+
+I la meva pròpia  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/41-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/42-ansible.png)
-Le cambiare los permisos a ls claves.  
+
+Li cambio els permisos a les claus.
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/43-ansible.png)
-Creo el archivo hosts.  
+
+Creació de l'arxiu de hosts.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/44-ansible.png)
-Desactivar la verificación de claves en Ansible.  
+
+Desactivar la verificació de claus d'Ansible.  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/45-ansible.png)
+
 Creación de scripts  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/46-ansible.png)
-Primero el web  
+
+Primer el web  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/47-ansible.png)
-Justificacion:  
+
+Justificació:  
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/48-ansible.png)
-Luego el de syslog  
+
+Després el syslog. 
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/49-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/50-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/51-ansible.png)
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/52-ansible.png)
+
 
 ## Servei de directori actiu per a guardar els usuaris.
 
