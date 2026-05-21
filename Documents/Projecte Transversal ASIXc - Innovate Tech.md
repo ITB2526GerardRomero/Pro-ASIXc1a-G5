@@ -775,7 +775,7 @@ Després d’això anem amb l’instal·lació de nginx:
 I fem que el servei inici quan inici la màquina:  
 ![Tretzena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web13.png)
 
-I per últim pel SFTP, la màquina ja ve amb SFTP per defecte, i ho podem verificar amb l\< comanda pertinent:  
+I finalment pel SFTP, la màquina ja ve amb SFTP per defecte, i ho podem verificar amb la comanda pertinent:  
 ![Catorzena](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web14.png)
 
 També podem verificar que funciona NGINX posant l'enllaç públic al navegador:
