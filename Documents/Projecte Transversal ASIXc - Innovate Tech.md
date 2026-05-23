@@ -899,57 +899,57 @@ Dades de la instancia:
 
 Creació de la instància:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio01.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio01.png)
 
 Accedim a ella:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio02.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio02.png)
 
 Creació usuari administració:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio03.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio03.png)
 
 INSTALAR ICECAST2:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio04.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio04.png)
 
 Editem el fitxer de configuració del servei per a configurar el servei:
 
 Contrasenyes:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio05.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio05.png)
 
 CAMBIAR HOSTNAME:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio06.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio06.png)
 
 ACTIVAR ICECAST:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio07.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio07.png)
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio08.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio08.png)
 
 Funcionament del servei:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio09.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio09.png)
 
 Per enviar l’audio a la pàgina utilitzem el servei ffmpeg.
 
 Instal·lació:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio10.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio10.png)
 
 Una vegada descarregat el mp3, utilitzem la comanda següent indicant el audio la direcció de la pàgina i les credencials del usuari que permet pujar l’audio.
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio11.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio11.png)
 
 Comprovació de que es pot escoltar l’audio desde la ruta:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio12.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio12.png)
 
 Execució de la comanda:
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio13.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio13.png)
 
 # **PUNT DE CONTROL TRANSVERSAL — Amplada de banda**
 
@@ -967,9 +967,9 @@ speedtest-cli
 
 La prova es va executar directament des del servidor AWS EC2 on està implementat el servei d’àudio.
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio14.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio14.png)
 
-![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/audio15.png)
+![Primera captura](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/audio15.png)
 
 # **Resultats obtinguts**
 
