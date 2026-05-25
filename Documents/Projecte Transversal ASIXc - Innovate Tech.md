@@ -157,7 +157,7 @@ Vista superior de la sala mostrant la disposició dels 2 racks en configuració 
 
 **Tall lateral - flux d'aire**
 
-![Tall lateral - flux d'aire](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/flux-aire.png)
+![Tall lateral - flux d'aire](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/flux-aire2.png)
 
 Cicle complet de refrigeració mostrant com l'aire fred surt del terra tècnic, passa pels servidors, i torna al CRAC pel sostre tècnic.
 
