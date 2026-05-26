@@ -735,6 +735,59 @@ Comprovació amb l'usurai administració.
 
 ![Admin Login](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminlogin.png)
 
+# Estructura d'Usuaris del Directori LDAP
+ 
+## Fitxer de creació d'usuaris (`usuarios.ldif`)
+ 
+![usuarios.ldif](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/estruct04.png)
+ 
+Els 4 usuaris s'han creat mitjançant el fitxer `~/usuarios.ldif`. Cada entrada defineix els atributs necessaris per al funcionament del compte al sistema i al directori:
+ 
+- **`objectClass: inetOrgPerson`** — dades personals (nom i cognoms)
+- **`objectClass: posixAccount`** — integració Unix (UID, GID, shell, directori home)
+- **`objectClass: shadowAccount`** — gestió de contrasenyes
+Tots comparteixen `gidNumber: 10000`, `loginShell: /bin/bash` i `userPassword: @ITB2026`.
+ 
+---
+ 
+## Estructura completa del directori
+ 
+![ldapsearch complet](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/estruct01.png)
+ 
+El directori LDAP s'organitza sota `dc=innovatetech,dc=local` amb dues unitats organitzatives:
+ 
+```
+dc=innovatetech,dc=local
+├── ou=usuaris   → conté els 4 usuaris del grup
+└── ou=grups     → reservat per a grups de treball
+```
+ 
+Cada usuari té un `uidNumber` únic i el seu propi `homeDirectory`.
+ 
+---
+ 
+## Verificació dels usuaris creats
+ 
+![ldapsearch usuaris](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/estruct02.png)
+ 
+Es confirma que els 4 usuaris estan correctament registrats a `ou=usuaris,dc=innovatetech,dc=local`:
+ 
+| uid | Nom complet | uidNumber |
+|---|---|---|
+| elian | Elian Salvador | 10001 |
+| gerard | Gerard Romero | 10002 |
+| daniel | Daniel Roblas | 10003 |
+| elias | Elias Martinez | 10004 |
+ 
+---
+ 
+## Estat del servei OpenLDAP
+ 
+![slapd status](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/estruct03.png)
+ 
+El servei `slapd` es troba en estat **active (running)**. La versió instal·lada és OpenLDAP `2.6.10` sobre Ubuntu 24.04, en funcionament des de l'inici del servidor.
+
+
 ## Implementació al núvol AWS - Web/SFTP
 
 Primer, crearem un grup de seguretat, que permet tot el tràfic per aixì poder connectar-nos a la nostra pròpia màquina:
