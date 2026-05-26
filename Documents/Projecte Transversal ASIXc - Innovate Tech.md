@@ -781,6 +781,179 @@ I finalment pel SFTP, la màquina ja ve amb SFTP per defecte, i ho podem verific
 També podem verificar que funciona NGINX posant l'enllaç públic al navegador:
 ![Quinzena](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web15.png)
 
+# Implantació del Servidor Web i SFTP
+
+## Instal·lació de dependències
+ 
+### Instal·lació de vsftpd i clients LDAP
+
+S'instal·la el servei **vsftpd** (servidor SFTP) i els paquets necessaris per integrar-lo amb LDAP: `openldap-clients` i `nss-pam-ldapd`. Aquests paquets permeten que el servidor web autentiqui els usuaris contra el directori LDAP d'InnovateTech.
+![bdldap01](bdldap01.png)
+![bdldap02](bdldap02.png)
+![bdldap03](bdldap03.png)
+
+## Configuració de LDAP
+ 
+### Fitxer `/etc/openldap/ldap.conf`
+ 
+![bdldap04](bdldap04.png)
+![bdldap06](bdldap06.png)
+ 
+Es configura el client LDAP apuntant al servidor del directori actiu:
+ 
+```
+URI ldap://52.0.2.63
+BASE dc=innovatetech,dc=local
+```
+Això permet que qualsevol servei del sistema (vsftpd, SSH, web) resolgui usuaris contra el servidor LDAP d'InnovateTech.
+
+### Fitxer `/etc/pam.d/vsftpd`
+ 
+![bdldap05](bdldap05.png)
+ 
+Es configura PAM per a vsftpd perquè autentiqui amb LDAP:
+ 
+```
+auth required pam_ldap.so
+account required pam_ldap.so
+```
+### Fitxer `/etc/pam.d/sshd`
+ 
+![bdldap08](bdldap08.png)
+ 
+De la mateixa manera, SSH s'integra amb LDAP per permetre l'accés als usuaris del directori:
+ 
+```
+auth required pam_ldap.so
+account required pam_ldap.so
+password required pam_ldap.so
+session required pam_unix.so
+```
+
+### Fitxer `/etc/nsswitch.conf`
+ 
+![bdldap09](bdldap09.png)
+ 
+Es modifica el fitxer de resolució de noms del sistema per consultar LDAP:
+ 
+```
+passwd:  files ldap
+shadow:  files ldap
+```
+ 
+Això garanteix que el sistema busqui els usuaris tant en fitxers locals com al servidor LDAP.
+
+ 
+### Fitxer `/etc/nslcd.conf`
+ 
+![bdldap10](bdldap10.png)
+ 
+Configuració del dimoni `nslcd` que gestiona les consultes LDAP del sistema:
+ 
+```
+uid nslcd
+gid ldap
+uri ldap://52.0.2.63
+base dc=innovatetech,dc=local
+```
+ 
+## Verificació de la integració LDAP
+ 
+### Consulta de tots els usuaris del directori
+ 
+![bdldap07](bdldap07.png)
+ 
+S'executa `ldapsearch` des del servidor web per verificar la connectivitat i llistar tots els usuaris del directori LDAP. Es confirma que els 4 usuaris del grup GEDE estan correctament creats a `ou=usuaris,dc=innovatetech,dc=local`:
+ 
+- `uid=elian` — Elian Salvador
+- `uid=gerard` — Gerard Romero
+- `uid=daniel` — Daniel Roblas
+- `uid=elias` — Elias Martinez
+ 
+### Verificació de resolució d'usuaris LDAP
+ 
+![bdldap11](bdldap11.png)
+ 
+S'executa `id elian` per confirmar que el sistema resol correctament l'usuari LDAP:
+ 
+```
+uid=10001(elian) gid=10000 groups=10000
+```
+ 
+Això confirma que `nslcd` funciona correctament i el sistema operatiu reconeix els usuaris del directori LDAP.
+ 
+## Instal·lació de PHP i Nginx
+ 
+### Instal·lació de PHP 8.5 i php-fpm
+ 
+![bdldap12](bdldap12.png)
+ 
+S'instal·la **PHP 8.5** amb el mòdul `php-fpm` per processar fitxers PHP a través de Nginx. El sistema instal·la automàticament totes les dependències necessàries.
+ 
+### Instal·lació de les extensions php-mysqli i php-ldap
+ 
+![bdldap13](bdldap13.png)
+ 
+S'instal·len les extensions PHP necessàries per a l'aplicació web:
+ 
+- **php8.5-mysqli** — per connectar amb la base de dades MySQL d'InnovateTech
+- **php8.5-ldap** — per autenticar els usuaris contra el servidor LDAP
+ 
+## Configuració de Nginx
+ 
+### Fitxer `/etc/nginx/nginx.conf`
+ 
+![bdldap14](bdldap14.png)
+ 
+Es configura Nginx per processar fitxers PHP via FastCGI, apuntant al socket de `php-fpm`:
+ 
+```nginx
+location ~ \.php$ {
+    fastcgi_pass unix:/run/php-fpm/www.sock;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
+```
+ 
+## Desplegament de l'aplicació web
+ 
+### Fitxers de l'aplicació
+ 
+![bdldap15](bdldap15.png)
+![bdldap16](bdldap16.png)
+![bdldap17](bdldap17.png)
+![bdldap18](bdldap18.png)
+ 
+Es creen els 4 fitxers PHP que formen l'aplicació de gestió d'InnovateTech:
+ 
+| Fitxer | Funció |
+|---|---|
+| `index.php` | Redirigeix a `login.php` |
+| `login.php` | Autenticació d'usuaris via LDAP |
+| `dashboard.php` | Interfície principal amb les 14 taules de la BBDD |
+| `logout.php` | Tancament de sessió |
+ 
+## Resultat final
+ 
+### Pantalla de login
+ 
+![bdldap19](bdldap19.png)
+ 
+Pantalla d'accés de l'aplicació web accessible des de `http://3.210.137.51`. L'autenticació es realitza contra el servidor LDAP d'InnovateTech (`ldap://52.0.2.63`). Els usuaris s'autentiquen amb les seves credencials del directori actiu.
+ 
+### Dashboard principal
+ 
+![bdldap20](bdldap20.png)
+ 
+Un cop autenticat, l'usuari accedeix al dashboard principal que mostra:
+ 
+- **Estadístiques en temps real** de les 6 taules principals: 10 empleats, 4 clients, 5 productes, 5 comandes, 15 trucades, 6 vídeos.
+- **Sidebar de navegació** amb les 14 taules organitzades en 4 seccions: Recursos Humans, Comercial, Comunicació i Sistema.
+- **Nom i estat de l'usuari** autenticat (Gerard — En línia).
+- **Resum tècnic** del sistema: MySQL 8.0, AWS EC2, estat Operatiu, autenticació OpenLDAP.
+La base de dades es troba en un servidor AWS EC2 separat (`32.192.128.228`) i totes les dades es mostren en temps real.
+
 ## AWS Syslog01
 
 Creació de la instancia:
