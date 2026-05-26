@@ -788,16 +788,15 @@ També podem verificar que funciona NGINX posant l'enllaç públic al navegador:
 ### Instal·lació de vsftpd i clients LDAP
 
 S'instal·la el servei **vsftpd** (servidor SFTP) i els paquets necessaris per integrar-lo amb LDAP: `openldap-clients` i `nss-pam-ldapd`. Aquests paquets permeten que el servidor web autentiqui els usuaris contra el directori LDAP d'InnovateTech.
-![bdldap01](bdldap01.png)
-![bdldap02](bdldap02.png)
-![bdldap03](bdldap03.png)
-
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap01.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap02.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap03.png)
 ## Configuració de LDAP
  
 ### Fitxer `/etc/openldap/ldap.conf`
  
-![bdldap04](bdldap04.png)
-![bdldap06](bdldap06.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap04.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap06.png)
  
 Es configura el client LDAP apuntant al servidor del directori actiu:
  
@@ -809,7 +808,7 @@ Això permet que qualsevol servei del sistema (vsftpd, SSH, web) resolgui usuari
 
 ### Fitxer `/etc/pam.d/vsftpd`
  
-![bdldap05](bdldap05.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap05.png)
  
 Es configura PAM per a vsftpd perquè autentiqui amb LDAP:
  
@@ -819,7 +818,7 @@ account required pam_ldap.so
 ```
 ### Fitxer `/etc/pam.d/sshd`
  
-![bdldap08](bdldap08.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap08.png)
  
 De la mateixa manera, SSH s'integra amb LDAP per permetre l'accés als usuaris del directori:
  
@@ -832,7 +831,7 @@ session required pam_unix.so
 
 ### Fitxer `/etc/nsswitch.conf`
  
-![bdldap09](bdldap09.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap09.png)
  
 Es modifica el fitxer de resolució de noms del sistema per consultar LDAP:
  
@@ -846,7 +845,7 @@ Això garanteix que el sistema busqui els usuaris tant en fitxers locals com al 
  
 ### Fitxer `/etc/nslcd.conf`
  
-![bdldap10](bdldap10.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap10.png)
  
 Configuració del dimoni `nslcd` que gestiona les consultes LDAP del sistema:
  
@@ -861,7 +860,7 @@ base dc=innovatetech,dc=local
  
 ### Consulta de tots els usuaris del directori
  
-![bdldap07](bdldap07.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap07.png)
  
 S'executa `ldapsearch` des del servidor web per verificar la connectivitat i llistar tots els usuaris del directori LDAP. Es confirma que els 4 usuaris del grup GEDE estan correctament creats a `ou=usuaris,dc=innovatetech,dc=local`:
  
@@ -872,7 +871,7 @@ S'executa `ldapsearch` des del servidor web per verificar la connectivitat i lli
  
 ### Verificació de resolució d'usuaris LDAP
  
-![bdldap11](bdldap11.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap11.png)
  
 S'executa `id elian` per confirmar que el sistema resol correctament l'usuari LDAP:
  
@@ -886,14 +885,14 @@ Això confirma que `nslcd` funciona correctament i el sistema operatiu reconeix 
  
 ### Instal·lació de PHP 8.5 i php-fpm
  
-![bdldap12](bdldap12.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap12.png)
  
 S'instal·la **PHP 8.5** amb el mòdul `php-fpm` per processar fitxers PHP a través de Nginx. El sistema instal·la automàticament totes les dependències necessàries.
  
 ### Instal·lació de les extensions php-mysqli i php-ldap
  
-![bdldap13](bdldap13.png)
- 
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap13.png) 
+
 S'instal·len les extensions PHP necessàries per a l'aplicació web:
  
 - **php8.5-mysqli** — per connectar amb la base de dades MySQL d'InnovateTech
@@ -903,7 +902,7 @@ S'instal·len les extensions PHP necessàries per a l'aplicació web:
  
 ### Fitxer `/etc/nginx/nginx.conf`
  
-![bdldap14](bdldap14.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap14.png)
  
 Es configura Nginx per processar fitxers PHP via FastCGI, apuntant al socket de `php-fpm`:
  
@@ -920,10 +919,10 @@ location ~ \.php$ {
  
 ### Fitxers de l'aplicació
  
-![bdldap15](bdldap15.png)
-![bdldap16](bdldap16.png)
-![bdldap17](bdldap17.png)
-![bdldap18](bdldap18.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap15.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap16.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap17.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap18.png)
  
 Es creen els 4 fitxers PHP que formen l'aplicació de gestió d'InnovateTech:
  
@@ -938,13 +937,13 @@ Es creen els 4 fitxers PHP que formen l'aplicació de gestió d'InnovateTech:
  
 ### Pantalla de login
  
-![bdldap19](bdldap19.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap19.png)
  
 Pantalla d'accés de l'aplicació web accessible des de `http://3.210.137.51`. L'autenticació es realitza contra el servidor LDAP d'InnovateTech (`ldap://52.0.2.63`). Els usuaris s'autentiquen amb les seves credencials del directori actiu.
  
 ### Dashboard principal
  
-![bdldap20](bdldap20.png)
+![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap20.png)
  
 Un cop autenticat, l'usuari accedeix al dashboard principal que mostra:
  
