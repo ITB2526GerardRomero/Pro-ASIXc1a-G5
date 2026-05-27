@@ -892,7 +892,7 @@ Això confirma que `nslcd` funciona correctament i el sistema operatiu reconeix 
  
 ## Instal·lació de PHP i Nginx
  
-### Instal·lació de PHP 8.5, php-fpm, php-mysql i php-ldap
+### Instal·lació de PHP, php-fpm, php-mysql i php-ldap
  
 ![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap08.png)
  
@@ -900,8 +900,8 @@ S'instal·la **PHP** amb el mòdul `php-fpm` per processar fitxers PHP a través
  
 S'instal·len les extensions PHP necessàries per a l'aplicació web:
  
-- **php8.5-mysqli** — per connectar amb la base de dades MySQL d'InnovateTech
-- **php8.5-ldap** — per autenticar els usuaris contra el servidor LDAP
+- **php-mysqli** — per connectar amb la base de dades MySQL d'InnovateTech
+- **php-ldap** — per autenticar els usuaris contra el servidor LDAP
  
 ## Configuració de Nginx
  
