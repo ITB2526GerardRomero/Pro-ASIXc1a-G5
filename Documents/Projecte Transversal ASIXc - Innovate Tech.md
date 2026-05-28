@@ -1574,6 +1574,12 @@ De manera automàtica, la nostra eina s'encarrega de:
 
 En resum, hem convertit una tasca que abans era manual i propensa a errors en un procés molt ràpid que fa tota la feina pesada per nosaltres.
 
+![Script 01](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser01.png)
+![Script 02](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser02.png)
+![Script 03](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser03.png)
+![Script 04](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser04.png)
+![Script 05](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser05.png)
+![Script 06](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser06.png)
 
 # 3.4 - Disseny Entitat-Relació i Model Relacional
 
