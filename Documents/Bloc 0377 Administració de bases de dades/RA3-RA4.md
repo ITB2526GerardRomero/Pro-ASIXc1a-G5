@@ -1,19 +1,19 @@
-**3\. Disseny i implementació d'una base de dades**
+## 3. Disseny i implementació d'una base de dades (Bloc 0377)
 
-Som Innovate Tech, una empresa de consoltoria tecnològica amb seu al Districte @22 de Barcelona. Disposem d’una estructura interna amb 4 departaments;
+Som Innovate Tech, una empresa de consultoria tecnològica amb seu al Districte 22@ de Barcelona. Disposem d’una estructura interna amb 4 departaments:
 
-- Vendes   
-- Suport Tècnic  
-- Administració  
-- Logística
+- Vendes.
+- Suport Tècnic.  
+- Administració. 
+- Logística.
 
-Per aquest motiu necessitem una base de dades que doni suport a;
+Per aquest motiu necessitem una base de dades que doni suport a:
 
 - La gestió del personal i l’estructura organitzativa de l’empresa.  
-- El sistema de comunicació interna, videotrucades i gestió de l’streaming d’àudio i vídeo.  
+- El sistema de comunicació interna, videotrucades i gestió del streaming d’àudio i vídeo.  
 - El control d’accés, seguretat i auditoria de la base i els sistemes instal·lats.
 
-**Llançament de la instancia.**
+**Llançament de la instància.**
 
 ![BBDD1](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/bbdd1.png?raw=true)
 
@@ -22,19 +22,19 @@ Per aquest motiu necessitem una base de dades que doni suport a;
 ![BBDD3](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/bbdd3.png?raw=true)
 
 
-Comprovació d’accedir a la instancia des de SSH.
+Comprovació d’accés a la instància des de SSH:
 
 ![SSHBBDD](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/sshbbdd.png?raw=true)
 
-Creació de l’usuari per accedir mitjançant clau pública/privada, més comprovació que es pot accedir.
+Creació de l’usuari per accedir mitjançant clau pública/privada, més comprovació que es pot accedir:
 
 ![Admin conf](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/admin_conf.png?raw=true)
 
 ![Comprobación admin](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/comprob-admin.png?raw=true)
 
-**3.1 Context del Projecte** 
+# 3.1 - Context del Projecte
 
-Innovate Tech disposa d’una estructura interna amb 4 departaments principal com ja havíem comentat abans. Aquest departaments necessiten eines de comunicació eficients, incloent-hi un sistema de videoconferències i trucades per coordinar les seves operacions diàries.  
+Innovate Tech disposa d’una estructura interna amb 4 departaments principal com ja havíem comentat abans. Aquests departaments necessiten eines de comunicació eficients, incloent-hi un sistema de videoconferències i trucades per coordinar les seves operacions diàries.  
 Aquesta base de dades servirà com a font de dades per a l’aplicació de gestió que residirà al servidor web.
 
 S’ha escollit MySQL com a sistema gestor de bases de dades, per els següents motius:
@@ -44,9 +44,9 @@ S’ha escollit MySQL com a sistema gestor de bases de dades, per els següents 
 - Integració nativa amb aplicacions web mitjançant PHP, Python i Node.js.  
 - Sense cost de llicència (open source, llicència GPL).
 
-**3.2 Disseny i Implementació de la Base de Dades**
+# 3.2 - Disseny i Implementació de la Base de Dades
 
-La Base de dades d’Innovate Tech ha de  cobrir les següents àrees funcionals, tal com especifica l’enunciat del projecte:
+La Base de dades d’Innovate Tech ha de  cobrir les següents àrees funcionals:
 
 - Gestió del personal i estructura organitzativa.  
 - Sistema de comunicació interna.  
@@ -167,7 +167,7 @@ Emmagatzema els resultats de les mesures d'amplada de banda.
 
 Taula: avisos
 
-Taula de log d'auditoria on es registren els intents no autoritzats d'accés o modificació, tal com exigeix l'enunciat.
+Taula de log d'auditoria on es registren els intents no autoritzats d'accés o modificació.
 
 \- id\_avis (INT AUTO\_INCREMENT) — Clau primària.  
 \- usuari (VARCHAR 100\) — Usuari que ha intentat l'acció.  
@@ -221,7 +221,7 @@ Registre de comandes realitzades pels clients.
 \- estat (ENUM 'pendent','enviada','lliurada','cancel·lada') — Estat actual de la comanda.  
 \- total (DECIMAL 10,2) — Import total de la comanda.
 
-3.2.7 Gestió Administrativa
+**3.2.7 Gestió Administrativa**
 
 Taula: nomines
 
@@ -236,7 +236,7 @@ Gestió de nòmines mensuals dels empleats de l'empresa.
 \- deduccions (DECIMAL 10,2 DEFAULT 0\) — Deduccions (IRPF, Seguretat Social, etc.).  
 \- total (DECIMAL 10,2) — Import net a percebre (salari\_base \+ complements \- deduccions).
 
-**Instal·lació de MySQL al servidor** 
+**Instal·lació de MySQL al servidor:** 
 
 ![MySQL](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/mysql.png?raw=true)
 
@@ -260,7 +260,7 @@ Creació de la Base de Dades i taules.
 
 ![MySQL 7](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/mysql7.png?raw=true)
 
-Dades de prova inserides (inserts).
+Dades de prova inserides (inserts):
 
 ![INSERT1](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/insert1.png?raw=true)
 ![INSERT2](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/insert2.png?raw=true)
@@ -274,44 +274,50 @@ Dades de prova inserides (inserts).
 ![INSERT10](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/insert10.png?raw=true)
 
 
-**3.3 Gestió d'Usuaris, Rols i Permisos**
+# 3.3 - Gestió d'Usuaris, Rols i Permisos
 
 S’han creat 4 rols amb permisos diferenciats segons les funcions de cada tipus d’usuari.
 
-**Rol Admin**  
+**Rol "Admin"**  
 Té accés total a totes les taules de la base de dades, pot crear, modificar i eliminar qualsevol estructura o dada. Está destinat al administrador de sistemes i de base de dades.
 
 ![ROL1](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rol1.png?raw=true)
 
-**Rol Vendes**  
+**Rol "Vendes"**  
 Permisos de SELECT, INSERT i UPDATE sobre les taules relacionades amb la gestió comercial.
 
-\- clients: per gestionar els clients de l'empresa.  
-\- comandes: per registrar i actualitzar comandes.  
-\- productes: per consultar i modificar el catàleg.  
-\- trucades: per registrar les trucades amb clients.  
-\- usuaris\_comunicacio (SELECT): per consultar dades de contacte.
+\- clients: Per gestionar els clients de l'empresa.  
+\- comandes: Per registrar i actualitzar comandes.  
+\- productes: Per consultar i modificar el catàleg.  
+\- trucades: Per registrar les trucades amb clients.  
+\- usuaris\_comunicacio (SELECT): Per consultar dades de contacte.
 
 ![ROL2](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rol2.png?raw=true)
 
-**Rol Administracio**  
+**Rol "Administracio"**  
 Permisos de SELECT, INSERT i UPDATE sobre les taules de gestió de personal.
 
-\- empleats: gestió del personal intern.  
-\- nomines: gestió de nòmines mensuals.  
-\- departaments: estructura organitzativa.
+\- empleats: Gestió del personal intern.  
+\- nomines: Gestió de nòmines mensuals.  
+\- departaments: Estructura organitzativa.
 
 ![ROL3](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rol3.png?raw=true)
 
-**Rol Treballador**  
+**Rol "Treballador"**  
 Permisos de SELECT (només consultas) 
 
-\- productes: consultar el catàleg.  
-\- videos\_streaming: accedir al catàleg de vídeos.  
-\- configuracio\_qualitat i configuracio\_servidor: consultar configuracions del sistema.
+\- productes: Consultar el catàleg.  
+\- videos\_streaming: Accedir al catàleg de vídeos.  
+\- configuracio\_qualitat i configuracio\_servidor: Consultar configuracions del sistema.
 
 ![ROL4](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rol4.png?raw=true)
 
-Comprovació
+Comprovació:
 
 ![Comparativa roles](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rolcompr.png?raw=true)
+
+# 3.4 - Disseny Entitat-Relació i Model Relacional
+
+Aqui es troba el diagrama del disseny relacional:
+
+![Diagrama BD](../../Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/Base%20de%20dades%20del%20projecte.png)
