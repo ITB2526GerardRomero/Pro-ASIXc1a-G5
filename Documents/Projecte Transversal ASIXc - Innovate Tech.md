@@ -525,7 +525,7 @@ Ara si, peguem la comanda copiada enteriorment que ens permetrà accedir a la in
 
 ![image12](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible12.png)
 
-2.CONFIGURACIÓ DEL SERVIDOR
+2. Configuració del servidor
 
 Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio" amb contrasenya “@ITB2026”:
 
@@ -549,69 +549,41 @@ I veiem que efectivament podem entrar sense contrasenya amb l'usuari creat prèv
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
 
-Actualitzem la instància:
+3.Actualització i instal·lació d'ansible
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/33-ansible.png)
+Actualitzem la llista de paquets del sistema i instal·lem les eines necessàries per poder llençar les instàncies d'AWS mitjançant els playbooks:
 
-I instal·lo l'ansible:
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible20.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/34-ansible.png)
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible21.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/35-ansible.png)
+4.Creació, execució i comprobació de playbook del servidor web
 
-Creació de scripts:  
+Primer de tot, hem d'agafar les credencials que m'ha passat el meu company per enganxar-les en un document anomenat "credentials", gràcies a aquest fitxer, ens deixa crear la instància per al meu company:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/36-ansible.png)
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible22.png)
 
-Primer vaig a crear les claus de les màquines.
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible23.png)
 
-La del syslog:
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible24.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/37-ansible.png)
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible26.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/38-ansible.png)  
+Ara hem de crear el playbook pel servdior web:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/39-ansible.png)
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
 
-La de la web:
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible27.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/40-ansible.png)  
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible28.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/41-ansible.png)
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible29.png)
 
-I la meva pròpia:
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible30.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/42-ansible.png)
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible31.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/43-ansible.png)
 
-Li cambio els permisos a les claus:  
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/44-ansible.png)
-
-Creació de l'arxiu de hosts:
-
-Desactivar la verificació de claus d'Ansible:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/45-ansible.png)
-
-Creació de scripts:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/46-ansible.png)
-
-Primer el web:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/47-ansible.png)
-
-Justificació:  
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/48-ansible.png)
-
-Després el syslog: 
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/49-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/50-ansible.png)
 
 ## Servei de directori actiu per a guardar els usuaris.
 
