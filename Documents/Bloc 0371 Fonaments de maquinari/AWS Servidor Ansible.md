@@ -95,6 +95,8 @@ Primer de tot, hauré d'agafar les credencials que m'haurà passat el meu compan
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible26.png)
 
+Ara haurem de crear el playbook pel servdior web.
+
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible27.png)
