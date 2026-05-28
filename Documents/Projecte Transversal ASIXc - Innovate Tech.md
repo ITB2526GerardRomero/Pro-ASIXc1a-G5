@@ -482,99 +482,72 @@ Hem implementat un servidor Ansible dedicat per actuar com el cervell i l'orques
 *   **Arquitectura neta i sense agents:** Un dels grans avantatges d'Ansible és que no requereix instal·lar programari addicional o agents pesats als servidors de destí. Simplement aprofita el protocol SSH, que ja ve integrat de sèrie en els sistemes operatius, per connectar-se, aplicar els canvis de configuració necessaris i desconnectar-se, mantenint els equips de la infraestructura lleugers i segurs.
 
 
-1.INSTAL·LACIÓ D'INSTÀNCIA  
+1. Instal·lació d'instància 
 
 Primer de tot hauriem d'iniciar el Launch d'AWS:  
+![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible1.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/1-ansible.png)
+Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau pública:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/2-ansible.png)
+![image2](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible2.png)  
 
-Entrarem a AWS i seguidament anirem a l'apartat EC2:  
+![image3](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible3.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/3-ansible.png)  
+Seleccionarem la clau abans creada como també l’edició de l’ordinador de lloguer que viu en un centre de dades d'Amazon, permetrem la conexió via SSH desde qualsevol lloc:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/4-ansible.png)  
+![image4](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible4.png)  
 
-Una vegada aquí anirem a l'apartat d'“Instances” i llançarem una instància amb l'opció “Launch instances”:  
+![image5](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible5.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/5-ansible.png)
+![image6](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible6.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/6-ansible.png)
+Llavors llançem l'instància:
 
-Llançarem la instància en el sistema operatiu Ubuntu Server 24.04, amb el nom ANSIBLE:  
+![image7](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible7.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/7-ansible.png)
+Una vegada creada, el primer que farem serà assignar-li la IP elàstica perquè sigui estàtica i així no canviï de IP cada cert temps.
+Per a això ens dirigirem al menú de l'esquerra a l’apartat “Direcciones IP elásticas”.
+I li associarem una nova IP elástica:
 
-Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau: 
+![image8](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible8.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/8-ansible.png)
+![image9](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible9.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/9-ansible.png)
+Comprovació:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/10-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/11-ansible.png)
-
-I amb tot configurat podrem llançar la nostra instància:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/12-ansible.png)
-
-Podem veure com efectivament s'ha creat correctament:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/13-ansible.png)
-
-Una vegada creada, el primer que farem serà assignar-li la IP elàstica perquè sigui estàtica i així no canviï de IP cada cert temps.  
-
-Per això ens dirigirem al menú de l'esquerra:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/14-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/15-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/16-ansible.png)
-
-Una vegada creada i confirmant la seva correcta configuració, l'hi assignarem  la IP elàstica al nostre servidor ansible anteriorment creat:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/17-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/18-ansible.png)
-
-Veurem que s'ha associat correctament anant a les instàncies i veient la IP elàstica del nostre servidor:
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/19-ansible.png)
-
-Una vegada assignat hauriem de connectar-nos al servidor Ansible via SSH, però abans caldria canviar els permisos de la clau pública:  
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/20-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/21-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/22-ansible.png)
+![image10](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible10.png)
 
 Es copia la commanda per després utilitzar-la, encara això, he de canviar els permisos de la clau:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/23-ansible.png)
+![image11](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible11.png)
 
 Ara si, peguem la comanda copiada enteriorment que ens permetrà accedir a la instància:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/24-ansible.png)
+![image12](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible12.png)
 
-Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio":
+2.CONFIGURACIÓ DEL SERVIDOR
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/25-ansible.png)
+Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio" amb contrasenya “@ITB2026”:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/26-ansible.png)
+![image13](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible13.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/27-ansible.png)
+![image14](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible14.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/28-ansible.png)
+![image15](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible15.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/30-ansible.png)
+Una vegada hem fet la creació de l'usuari li copiem les claus SSH de l'usuari ubuntu perquè pugui iniciar sessió sense contrasenya, a part d'això l'afegim al grup root junt a ficar-ho al fitxer sudoers per concedir privilegis d'administrador:
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/31-ansible.png)
+![image16](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible16.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/32-ansible.png)
+![image17](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible17.png)
+
+Reiniciem el servidor perquè es desin tots els canvis:
+
+![image18](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible18.png)
+
+I veiem que efectivament podem entrar sense contrasenya amb l'usuari creat prèviament i que té permisos de sudo:
+
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
 
 Actualitzem la instància:
 
