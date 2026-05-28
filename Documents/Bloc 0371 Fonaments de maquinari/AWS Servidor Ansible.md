@@ -75,3 +75,67 @@ I veiem que efectivament podem entrar sense contrasenya amb l'usuari creat prèv
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
 
+Actualitzem la instància:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/33-ansible.png)
+
+I instal·lo l'ansible:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/34-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/35-ansible.png)
+
+Creació de scripts:  
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/36-ansible.png)
+
+Primer vaig a crear les claus de les màquines.
+
+La del syslog:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/37-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/38-ansible.png)  
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/39-ansible.png)
+
+La de la web:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/40-ansible.png)  
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/41-ansible.png)
+
+I la meva pròpia:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/42-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/43-ansible.png)
+
+Li cambio els permisos a les claus:  
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/44-ansible.png)
+
+Creació de l'arxiu de hosts:
+
+Desactivar la verificació de claus d'Ansible:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/45-ansible.png)
+
+Creació de scripts:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/46-ansible.png)
+
+Primer el web:
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/47-ansible.png)
+
+Justificació:  
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/48-ansible.png)
+
+Després el syslog: 
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/49-ansible.png)
+
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/50-ansible.png)
+
