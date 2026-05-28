@@ -255,15 +255,11 @@ La infraestructura de xarxa utiliza switches gestionables de nivell empresarial.
 
 ## **Característiques de xarxa**
 
-VLANs separades.
-
-QoS per a tràfic multimèdia.
-
-STP/RSTP.
-
-Link Aggregation.
-
-Monitorizació SNMP.
+- VLANs separades.
+- QoS per a tràfic multimèdia.
+- STP/RSTP.
+- Link Aggregation.
+- Monitorizació SNMP.
 
 # **Distribució dels racks**
 
@@ -274,7 +270,7 @@ La distribució física segueix una estructura optimizada per a:
 * Seguretat.  
 * Escalabilitat.
 
-## **Organizació de racks**
+## **Organització de racks**
 
 | Rack | Contingut |
 | ----- | ----- |
