@@ -1559,9 +1559,24 @@ Comprovació:
 
 ![Comparativa roles](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rolcompr.png?raw=true)
 
+# - Script de creació automatitzada d'usuaris
+
+Per al nostre projecte, hem creat una script que ens automatitza i simplifica enormement la tasca de donar d'alta nous treballadors al sistema.
+
+El que fa aquest programa és guiar-nos pas a pas fent-nos unes poques preguntes bàsiques per pantalla, com el nom, el correu i el departament al qual pertany la persona. Perquè sigui més ràpid i còmode, el mateix sistema genera per nosaltres la informació restant, com ara assignar-li una extensió de telèfon aleatòria i un enllaç personal per a videotrucades.
+
+De manera automàtica, la nostra eina s'encarrega de:
+
+* **Validar les dades:** Revisar que no ens hàgim equivocat en escriure els correus, contrasenyes o departaments.
+* **Gestionar els permisos:** Assignar a cada empleat exactament els accessos que necessita per treballar, basant-se en el seu lloc.
+* **Crear l'usuari:** Donar d'alta la persona de forma real a la nostra base de dades perquè ja pugui començar a treballar.
+* **Generar un registre:** Guardar una còpia escrita en un arxiu amb totes les operacions que s'han fet, per si necessitem revisar-les en el futur.
+
+En resum, hem convertit una tasca que abans era manual i propensa a errors en un procés molt ràpid que fa tota la feina pesada per nosaltres.
+
+
 # 3.4 - Disseny Entitat-Relació i Model Relacional
 
 Aqui es troba el diagrama del disseny relacional:
 
 ![Diagrama BD](../Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/Base%20de%20dades%20del%20projecte.png)
-
