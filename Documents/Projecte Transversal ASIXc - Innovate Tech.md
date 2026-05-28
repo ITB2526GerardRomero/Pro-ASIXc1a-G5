@@ -251,7 +251,7 @@ La infraestructura de xarxa utiliza switches gestionables de nivell empresarial.
 | Core Switch | Cisco Catalyst 9200 | 48 ports | Backbone principal |
 | Switch Rack A | Cisco CBS350 | 24 ports | Servidors producció |
 | Switch Rack B | Cisco CBS350 | 24 ports | Serveis multimedia |
-| Switch Gestió | TP-Link JetStream | 16 ports | Administració i monitoratje |
+| Switch Gestió | TP-Link JetStream | 16 ports | Administració i monitoratge |
 
 ## **Característiques de xarxa**
 
