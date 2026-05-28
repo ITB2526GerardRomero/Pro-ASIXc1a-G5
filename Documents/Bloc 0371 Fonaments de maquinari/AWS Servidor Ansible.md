@@ -51,7 +51,7 @@ Ara si, peguem la comanda copiada enteriorment que ens permetrà accedir a la in
 
 ![image12](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible12.png)
 
-2.CONFIGURACIÓ DEL SERVIDOR
+2. Configuració del servidor
 
 Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio" amb contrasenya “@ITB2026”:
 
@@ -75,17 +75,17 @@ I veiem que efectivament podem entrar sense contrasenya amb l'usuari creat prèv
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
 
-3.ACTUALITZACIÓ I INSTAL·LACIÓ D'ANSIBLE
+3.Actualització i instal·lació d'ansible
 
-Actualitzarem la llista de paquets del sistema i instal·larem les eines necessàries per poder llançar les instàncies d'AWS mitjançant els playbooks.
+Actualitzem la llista de paquets del sistema i instal·lem les eines necessàries per poder llençar les instàncies d'AWS mitjançant els playbooks:
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible20.png)
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible21.png)
 
-4.CREACIÓN , EJECUCIÓN Y COMPROBACION DE PLAYBOOK DEL SERVIDOR WEB
+4.Creació, execució i comprobació de playbook del servidor web
 
-Primer de tot, hauré d'agafar les credencials que m'haurà passat el meu company per enganxar-les en un document anomenat credentials; gràcies a aquest fitxer, ens deixarà crear la instància per al meu company.
+Primer de tot, hem d'agafar les credencials que m'ha passat el meu company per enganxar-les en un document anomenat "credentials", gràcies a aquest fitxer, ens deixa crear la instància per al meu company:
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible22.png)
 
@@ -95,7 +95,7 @@ Primer de tot, hauré d'agafar les credencials que m'haurà passat el meu compan
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible26.png)
 
-Ara haurem de crear el playbook pel servdior web.
+Ara hem de crear el playbook pel servdior web:
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
 
