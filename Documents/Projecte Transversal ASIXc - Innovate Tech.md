@@ -1559,7 +1559,7 @@ Comprovació:
 
 ![Comparativa roles](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rolcompr.png?raw=true)
 
-# - Script de creació automatitzada d'usuaris
+# Script de creació automatitzada d'usuaris
 
 Per al nostre projecte, hem creat una script que ens automatitza i simplifica enormement la tasca de donar d'alta nous treballadors al sistema.
 
