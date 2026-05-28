@@ -8,7 +8,7 @@ Hem implementat un servidor Ansible dedicat per actuar com el cervell i l'orques
 *   **Arquitectura neta i sense agents:** Un dels grans avantatges d'Ansible és que no requereix instal·lar programari addicional o agents pesats als servidors de destí. Simplement aprofita el protocol SSH, que ja ve integrat de sèrie en els sistemes operatius, per connectar-se, aplicar els canvis de configuració necessaris i desconnectar-se, mantenint els equips de la infraestructura lleugers i segurs.
 
 
-1.INSTAL·LACIÓ D'INSTÀNCIA  
+1. Instal·lació d'instància 
 
 Primer de tot hauriem d'iniciar el Launch d'AWS:  
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible1.png)
@@ -39,21 +39,21 @@ I li associarem una nova IP elástica:
 
 ![image9](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible9.png)
 
-Comprovarem que la instància s'ha creat bé i que també té l'IP elàstica correctament assignada.
+Comprovació:
 
 ![image10](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible10.png)
 
-Una vegada assignat hauré de connectar-me al servidor Ansible via SSH, però primer de tot hauré de canviar els permisos de la clau pública si inicio des d’Ubuntu amb la comanda chmod 400 clau-ansible.pem.
+Es copia la commanda per després utilitzar-la, encara això, he de canviar els permisos de la clau:
 
 ![image11](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible11.png)
 
-Ara si enganxarem l'ordre abans copiada i veurem que efectivamente podrem conectar-nos.
+Ara si, peguem la comanda copiada enteriorment que ens permetrà accedir a la instància:
 
 ![image12](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible12.png)
 
 2.CONFIGURACIÓ DEL SERVIDOR
 
-Un cop entrat a la màquina canviarem tant l'hostname com també crearem l'usuari “administracio” amb contrasenya “@ITB2026”.
+Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio" amb contrasenya “@ITB2026”:
 
 ![image13](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible13.png)
 
@@ -61,18 +61,17 @@ Un cop entrat a la màquina canviarem tant l'hostname com també crearem l'usuar
 
 ![image15](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible15.png)
 
-Una vegada hem fet la creació de l'usuari li copiarem les claus SSH de l'usuari ubuntu perquè pugui iniciar sessió sense contrasenya i afegirem al grup root.
-A més, editem el fitxer sudoers per a concedir-li privilegis totals d'administrador (sudo) en el sistema.
+Una vegada hem fet la creació de l'usuari li copiem les claus SSH de l'usuari ubuntu perquè pugui iniciar sessió sense contrasenya, a part d'això l'afegim al grup root junt a ficar-ho al fitxer sudoers per concedir privilegis d'administrador:
 
 ![image16](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible16.png)
 
 ![image17](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible17.png)
 
-Reiniciarem el servidor perquè es desin tots els canvis.
+Reiniciem el servidor perquè es desin tots els canvis:
 
 ![image18](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible18.png)
 
-Veurem que efectivament podem entrar sense contrasenya amb l'usuari creat prèviament i que té permisos de sudo.
+I veiem que efectivament podem entrar sense contrasenya amb l'usuari creat prèviament i que té permisos de sudo:
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
 
