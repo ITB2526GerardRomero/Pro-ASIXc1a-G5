@@ -1,34 +1,39 @@
-Dues de les màquines (com a mínim) han d’estar configurades amb Ansible  
-(incloent tota la configuració feta al servidor).  
-Primer de tot, per a què volem un servidor Ansible a part, el tenim ja que és el cervell de la nostra infraestructura, per començar en lloc d'estar entrant via SSH d'un en un als nostres servidors per configurar-los a mà, llencem els playbooks des d'Ansible i podrà treballar en totes les màquines alhora.
-Tindrem en aquest servidor fitxers .yml que són el backup dels nostres servidors, si el servidor web o syslog es trenquen ara mateix, podrem restaurar tota la instal·lació i configuració en menys de 30 segons tant de la instancia com del servei.
-A més Ansible no necessita instal·lar programes pesats a les màquines dels nostres companys, es connecta via SSH que ja ve en la instal·lació fa els canvis i se'n va.
+## Ansible 
+### El paper central del nostre servidor Ansible
 
-1.INSTAL·LACIÓ D'INSTÀNCIA
+Hem implementat un servidor Ansible dedicat per actuar com el cervell i l'orquestrador de tota la nostra infraestructura. Els motius i avantatges principals d'aquesta decisió són els següents:
 
-Primer de tot hauré d'iniciar el Launch d'AWS per fer llençar les instàncies, entrarem a AWS i seguidament anirem a l'apartat EC2.
-Una vegada aquí anirem a l'apartat d'“Instances” i llançarem una instància amb l'opció “Launch instances”.
-Escollirem el sistema operatiu Ubuntu Server 24.04, amb el nom ANSIBLE.
+*   **Automatització eficient i centralitzada:** En lloc de connectar-nos manualment via SSH a cada servidor per configurar-los d'un en un, Ansible ens permet executar *playbooks*. Això significa que podem aplicar configuracions, actualitzacions i canvis a totes les màquines alhora de manera totalment automatitzada, estalviant temps i minimitzant els errors humans.
+*   **Recuperació immediata (Infraestructura com a Codi):** Aquest servidor emmagatzema els fitxers de configuració `.yml`, els quals actuen com un registre i una còpia de seguretat exacta de com han d'estar configurats els nostres equips. Si un servei crític cau o es corromp (com el servidor web o el de *syslog*), aquests fitxers ens permeten restaurar i tornar a desplegar tota la instal·lació i configuració des de zero en menys de 30 segons.
+*   **Arquitectura neta i sense agents:** Un dels grans avantatges d'Ansible és que no requereix instal·lar programari addicional o agents pesats als servidors de destí. Simplement aprofita el protocol SSH, que ja ve integrat de sèrie en els sistemes operatius, per connectar-se, aplicar els canvis de configuració necessaris i desconnectar-se, mantenint els equips de la infraestructura lleugers i segurs.
+
+
+1.INSTAL·LACIÓ D'INSTÀNCIA  
+
+Primer de tot hauriem d'iniciar el Launch d'AWS:  
 ![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible1.png)
 
-Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau pública.
+Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau pública:
 
 ![image2](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible2.png)  
+
 ![image3](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible3.png)
 
-Seleccionarem la clau abans creada como també l’edició de l’ordinador de lloguer que viu en un centre de dades d'Amazon, permetrem la conexió via SSH desde qualsevol lloc.
+Seleccionarem la clau abans creada como també l’edició de l’ordinador de lloguer que viu en un centre de dades d'Amazon, permetrem la conexió via SSH desde qualsevol lloc:
 
 ![image4](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible4.png)  
+
 ![image5](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible5.png)
+
 ![image6](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible6.png)
 
-I amb tot configurat podem llençar la nostra instància amb l’opció “Lanzar instancia”que ens apareix a la dreta .
+Llavors llançem l'instància:
 
 ![image7](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible7.png)
 
 Una vegada creada, el primer que farem serà assignar-li la IP elàstica perquè sigui estàtica i així no canviï de IP cada cert temps.
 Per a això ens dirigirem al menú de l'esquerra a l’apartat “Direcciones IP elásticas”.
-I ens associarem una nova IP elástica.
+I li associarem una nova IP elástica:
 
 ![image8](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible8.png)
 
