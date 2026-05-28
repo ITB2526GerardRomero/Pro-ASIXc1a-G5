@@ -470,9 +470,7 @@ Redundància: Disposarem de 2 mòduls de bateries redundants. Això garanteix qu
 - I apagar els equips no necessaris a les hores punta per a què no consumeixin.
 
 
-# 1.5 - Implementació al Núvol (AWS)
- 
-## Ansible 
+## 1.5 Ansible 
 ### El paper central del nostre servidor Ansible
 
 Hem implementat un servidor Ansible dedicat per actuar com el cervell i l'orquestrador de tota la nostra infraestructura. Els motius i avantatges principals d'aquesta decisió són els següents:
@@ -494,7 +492,6 @@ Crearem les claus, perquè així els nostres companys puguin connectar-se al nos
 ![image3](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible3.png)
 
 Seleccionarem la clau abans creada como també l’edició de l’ordinador de lloguer que viu en un centre de dades d'Amazon, permetrem la conexió via SSH desde qualsevol lloc:
-
 ![image4](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible4.png)  
 
 ![image5](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible5.png)
@@ -525,7 +522,7 @@ Ara si, peguem la comanda copiada enteriorment que ens permetrà accedir a la in
 
 ![image12](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible12.png)
 
-2. Configuració del servidor
+2.CONFIGURACIÓ DEL SERVIDOR
 
 Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio" amb contrasenya “@ITB2026”:
 
@@ -549,17 +546,17 @@ I veiem que efectivament podem entrar sense contrasenya amb l'usuari creat prèv
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
 
-3.Actualització i instal·lació d'ansible
+3.ACTUALITZACIÓ I INSTAL·LACIÓ D'ANSIBLE
 
-Actualitzem la llista de paquets del sistema i instal·lem les eines necessàries per poder llençar les instàncies d'AWS mitjançant els playbooks:
+Actualitzarem la llista de paquets del sistema i instal·larem les eines necessàries per poder llançar les instàncies d'AWS mitjançant els playbooks.
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible20.png)
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible21.png)
 
-4.Creació, execució i comprobació de playbook del servidor web
+4.CREACIÓN , EJECUCIÓN Y COMPROBACION DE PLAYBOOK DEL SERVIDOR WEB
 
-Primer de tot, hem d'agafar les credencials que m'ha passat el meu company per enganxar-les en un document anomenat "credentials", gràcies a aquest fitxer, ens deixa crear la instància per al meu company:
+Primer de tot, hauré d'agafar les credencials que m'haurà passat el meu company per enganxar-les en un document anomenat credentials; gràcies a aquest fitxer, ens deixarà crear la instància per al meu company.
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible22.png)
 
@@ -569,9 +566,11 @@ Primer de tot, hem d'agafar les credencials que m'ha passat el meu company per e
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible26.png)
 
-Ara hem de crear el playbook pel servdior web:
+Ara haurem de crear el playbook pel servdior web.
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
+
+I executo el playbook.
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible27.png)
 
@@ -579,9 +578,25 @@ Ara hem de crear el playbook pel servdior web:
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible29.png)
 
+Veurem que s'ha fet correctament
+
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible30.png)
 
 ![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible31.png)
+
+4.CREACIÓN , EJECUCIÓN Y COMPROBACION DE PLAYBOOK DEL SERVIDOR SYSLOG
+
+El mateix que Web.
+
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible32.png)
+
+Executo
+
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible33.png)
+
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible34.png)
+
+
 
 
 
