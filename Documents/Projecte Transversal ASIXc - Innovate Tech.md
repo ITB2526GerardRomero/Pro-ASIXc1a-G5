@@ -1573,7 +1573,11 @@ Per garantir que ningú accedeix a informació confidencial, hem creat una taula
 
 En resum, hem construït un sistema de defensa que funciona en segon pla, aturant qualsevol acció no permesa i deixant-ne constància per poder revisar-ho posteriorment.
 
+![Trigger 01](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/trigger01.png)
 
+![Trigger 02](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/trigger02.png)
+
+![Trigger 03](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/trigger03.png)
 
 # 3.4 - Disseny Entitat-Relació i Model Relacional
 
