@@ -85,7 +85,7 @@ Actualitzarem la llista de paquets del sistema i instal·larem les eines necess�
 
 4.CREACIÓN , EJECUCIÓN Y COMPROBACION DE PLAYBOOK DEL SERVIDOR WEB
 
-Primero tengo que coger las credenciales de mi compañero que me habra pasado
+Primer de tot, hauré d'agafar les credencials que m'haurà passat el meu company per enganxar-les en un document anomenat credentials; gràcies a aquest fitxer, ens deixarà crear la instància per al meu company.
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible22.png)
 
@@ -93,9 +93,9 @@ Primero tengo que coger las credenciales de mi compañero que me habra pasado
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible24.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
-
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible26.png)
+
+![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
 
 ![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible27.png)
 
