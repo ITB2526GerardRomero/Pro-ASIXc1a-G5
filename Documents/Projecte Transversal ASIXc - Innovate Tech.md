@@ -771,57 +771,63 @@ El servei `slapd` es troba en estat **active (running)**. La versió instal·lad
 
 ## Implementació al núvol AWS - Web/SFTP
 
-Primer, crearem un grup de seguretat, que permet tot el tràfic per aixì poder connectar-nos a la nostra pròpia màquina:
+En primer lloc crearem un grup de seguretat que permeti tot el tràfic, per poder connectar-nos a la nostra pròpia instància:
 
 ![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web01.png)
 
-I comencem a crear la màquina, amb el nom pertinent i principalment escollim una AMI gratuïta ja que si no els terminen ràpidament:  
+I comencem a crear la instància amb el nom pertinent: 
+
 ![Segona captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web02.png)
 
-I com a targeta utilitzarem la t3.micro, ja que també és gratuïta:  
-![Tercera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web03.png)
+Aquestes seran les següents característiques:
 
-Utilitzarem una nova par de claus, ja que aixì podem identificar bé la màquina i ficar-nos a ella:  
+![Tercera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web03.png) 
+
 ![Quarta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web04.png)
 
-I li ficarem al grup de seguretat creat anteriorment:  
 ![Quinta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web05.png)
 
-Tot seguit a això fem ssh per ficar-nos a la màquina i li cambien el hostname per poder identificarla de manera fàcil:  
+Tot seguit a això fem SSH per ficar-nos a la instància i li cambien el hostname per poder identificarla de manera fàcil:  
+
 ![Sexta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web06.png)
 
-Ara que ens hem ficat, crearem l'usuari de administració i tot seguit li canviem la contrasenya i li afegim al grup root:  
+Ara que ens hem ficat, crearem l'usuari "administracio" i tot seguit li canviem la contrasenya i li afegim al grup root: 
+
 ![Septima captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web07.png)
 
-I les claus de l’usuari ec2 les copiem a la home de l'usuari “administracio”, ja que a partir d’ara ens ficarem a aquest:  
+I les claus de l’usuari Ubuntu les copiem a la home de l'usuari “administracio”, ja que a partir d’ara ens ficarem a aquest:  
+
 ![Dècima captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web08.png)
 
-I verifiquem que podem ficar-nos:  
+Comprovació que es pot accedir:
+
 ![Decimaprimera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web09.png)
 
-Després d’això anem amb l’instal·lació de nginx:  
+## Instal·lació de nginx:  
+
 ![Decimasegona captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web12.png)
 
-I fem que el servei inici quan inici la màquina:  
 ![Tretzena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web13.png)
 
-I finalment pel SFTP, la màquina ja ve amb SFTP per defecte, i ho podem verificar amb la comanda pertinent:  
+Comprovació de SFTP:
+
 ![Catorzena](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web14.png)
 
-També podem verificar que funciona NGINX posant l'enllaç públic al navegador:
+Podem veure que SFTP ve per defecte a la instància
+
+Verifiquem que NGINX funciona correctament ficant l'enllaç públic:
+
 ![Quinzena](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/web15.png)
-
-# Implantació del Servidor Web i SFTP
-
-## Instal·lació de dependències
  
 ### Instal·lació de vsftpd i clients LDAP
 
-S'instal·la els paquets necessaris per integrar la màquina amb LDAP: `libnss-ldap`, `libpam-ldap`, 'ldap-utils' i per últim 'nslcd'. Aquests paquets permeten que el servidor web conegui els usuaris del LDAP i pugui autenticar els usuaris contra el directori LDAP d'InnovateTech, i el nslc és qui permet que hi hagi una connexió.
+S'instal·la els paquets necessaris per integrar la màquina amb LDAP: `libnss-ldap`, `libpam-ldap`, 'ldap-utils' i per últim 'nslcd'. Aquests paquets permeten que el servidor web conegui els usuaris del LDAP i pugui autenticar els usuaris contra el directori LDAP d'InnovateTech, i el 'nslcd' és qui permet que hi hagi una connexió.
+
 ![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap01.png)
+
 ## Configuració de LDAP
  
-A l'hora d'instal·lar els paquets anteriors, hem agut de configurar un par de coses, com la direcció del servei LDAP, i els dc del domini:
+A l'hora d'instal·lar els paquets anteriors, hem hagut de configurar un par de coses, com la direcció del servei LDAP, i els dc del domini:
  
 ![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap02.png)
 ![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap03.png)
@@ -832,12 +838,12 @@ Es configura el client LDAP apuntant al servidor del directori actiu:
 URI ldap://52.0.2.63
 BASE dc=innovatetech,dc=local
 ```
-Això permet que qualsevol servei del sistema (vsftpd, SSH, web) resolgui usuaris contra el servidor LDAP d'InnovateTech.
 
+Això permet que qualsevol servei del sistema (vsftpd, SSH, web) resolgui usuaris contra el servidor LDAP d'InnovateTech.
 
 ### VSFTPD i fitxer `/etc/pam.d/vsftpd`
 
-Després d'haver configurat el necessari per el LDAP instal·lem el VSFTP i el configurem per a que s'apigui que ha d'agafar l'autenticació i les comptes del LDAP  
+Després d'haver configurat el necessari per el LDAP instal·lem el VSFTP i el configurem per a que s'apigui que ha d'agafar l'autenticació i les comptes del LDAP: 
  
 ![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap04.png)
 ![bdldap01](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/bdldap05.png)
@@ -881,8 +887,8 @@ S'instal·la **PHP** amb el mòdul `php-fpm` per processar fitxers PHP a través
  
 S'instal·len les extensions PHP necessàries per a l'aplicació web:
  
-- **php-mysqli** — per connectar amb la base de dades MySQL d'InnovateTech
-- **php-ldap** — per autenticar els usuaris contra el servidor LDAP
+- **php-mysqli** — per connectar amb la base de dades MySQL d'InnovateTech.
+- **php-ldap** — per autenticar els usuaris contra el servidor LDAP.
  
 ## Configuració de Nginx
  
@@ -937,7 +943,7 @@ Un cop autenticat, l'usuari accedeix al dashboard principal que mostra:
 - **Resum tècnic** del sistema: MySQL 8.0, AWS EC2, estat Operatiu, autenticació OpenLDAP.
 La base de dades es troba en un servidor AWS EC2 separat (`32.192.128.228`) i totes les dades es mostren en temps real.
 
-## AWS Syslog01
+## AWS Syslog
 
 Creació de la instancia:
 
@@ -951,52 +957,52 @@ Creació de la instancia:
 
 ![Primera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog01.png)
 
-Una vegada creades les claus pem., les guardem a la carpeta compartida del drive del grup i accedim a la maquina:
+Una vegada creades les claus .pem:
 
 ![Segona captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog02.png)
 
-Ara instal·lem el servei que ens permetra realitzar els logs de tots els servidors:
+Ara instal·lem el servei que ens permetrà realitzar els logs de tots els servidors:
 
 ![Tercera captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog03.png)
 
-Ara editem el fitxer de configuració de logs del servidor /etc/rsyslog.conf i descomentarem algunas líneas:
+Ara editem el fitxer de configuració de logs del servidor /etc/rsyslog.conf:
 
 ![Cuarta captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog04.png)
 
-Ara crearem les carpetes per als logs remots en el fitxer /etc/rsyslog.d/remote.conf :
+Ara crearem les carpetes pels logs remots en el fitxer /etc/rsyslog.d/remote.conf:
 
 ![5 captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog05.png)
 
 Això fa:
 
-- una carpeta per servidor.  
-- logs separats automàticament.
+- Una carpeta per a cada servidor.  
+- Logs separats automàticament.
 
 Reiniciem el servei:
 
 ![Sisena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog06.png)
 
-Per a la comprovació caldra instalar el rsyslog en els servidors i en el fitxer /etc/rsyslog.conf afegir la linea *.* @18.212.86.171:514 i despres reiniciar client sudo systemctl restart rsyslog i finalment veure en el cd /var/log/remote web01/ ldap01/ db01/
+Per a la comprovació caldrà instalar el rsyslog en els servidors i en el fitxer /etc/rsyslog.conf afegir la linea *.* @18.212.86.171:514 i despres reiniciar client, 'sudo systemctl restart rsyslog' i finalment veure al directori que hem configurat, ho podem fer amb 'cd /var/log/remote/' i per a cada servidor 'web01/', 'ldap01/', 'db01/'.
 
 
-Finalment creem l'usuari administracio:
+Creació usuari "administracio":
 
 ![Sisena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog08.png)
 
-Comprovacio del funcionament dels logs:
+Comprovació del funcionament dels logs:
 
 ![Sisena captura](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/syslog09.png)
 
 ---
 
-## 2. Serveis de Xarxes i Internet: Àudio i Vídeo (Bloc 0375)
+### 2. Serveis de Xarxes i Internet: Àudio i Vídeo (Bloc 0375)
 
 Un cop consolidada la infraestructura de maquinari (tant local com al núvol), el següent pas és desplegar els serveis que donaran suport a la comunicació interna i la formació corporativa d'Innovate Tech, recolzant-se sobre la base ja dissenyada.
 
-### 2.1 Descripció General dels Serveis
+## 2.1 Descripció General dels Serveis
 Implementació d'una arquitectura multimèdia que suporti la distribució de continguts en streaming i eines de videoconferència en temps real, accessibles des de clients locals i navegadors web.
 
-### 2.2 Implantació del Servei d'Àudio
+## 2.2 Implantació del Servei d'Àudio
 Descripció del servei:
 
 El servei d’àudio implementat permet la transmissió de contingut multimèdia en temps real mitjançant tecnologia de streaming.
