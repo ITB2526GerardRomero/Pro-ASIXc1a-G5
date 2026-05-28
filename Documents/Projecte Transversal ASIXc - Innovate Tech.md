@@ -1553,6 +1553,28 @@ En resum, hem convertit una tasca que abans era manual i propensa a errors en un
 ![Script 05](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser05.png)
 ![Script 06](/Imatges/Bloc%200377%20Administració%20de%20bases%20de%20dades/Scriptuser06.png)
 
+# Control d'Accés i Auditoria (Triggers)
+
+Per complir amb els requisits de seguretat de la base de dades, hem dissenyat un script que actua com un vigilant constant i automàtic [cite: 3]. Aquesta eina instal·la uns mecanismes interns, anomenats "triggers", que salten sols en el moment exacte en què algú intenta fer una acció que no toca o supera els seus límits. 
+
+A continuació, detallem com la nostra eina dona resposta a cada punt demanat:
+
+### 1. Control d'ús i bloquejos (Trucades)
+El primer vigilant s'encarrega de controlar l'ús que cada persona fa del sistema de trucades [cite: 3]. Actua de manera preventiva just abans que es faci una nova trucada [cite: 1]:
+
+*   **Límit de minuts i trucades diàries:** Revisa automàticament si l'usuari ha gastat tots els minuts que té assignats al mes o si ha superat el nombre màxim de trucades que pot fer en un sol dia [cite: 1, 2, 3]. Si és així, atura la trucada i guarda un avís explicant quin límit s'ha superat [cite: 1, 2, 3].
+*   **Gestió d'usuaris bloquejats:** També comprova l'estat de la persona. Si per algun motiu el seu compte està marcat com a "bloquejat" (ja sigui temporalment o per sempre), el sistema li prohibeix fer la trucada i registra l'intent [cite: 1, 3].
+
+### 2. Auditoria de Seguretat (Taula d'avisos)
+Per garantir que ningú accedeix a informació confidencial, hem creat una taula especial on es guarden tots els avisos d'intents no permesos [cite: 3]. Hem configurat dos vigilants més per a aquesta tasca:
+
+*   **Protecció de Nòmines:** Si algú que treballa a vendes o com a treballador ras intenta remenar a la taula de nòmines (que és informació sensible), el sistema li talla el pas immediatament [cite: 2, 3]. A l'instant, apunta a la nostra taula d'avisos qui ho ha intentat, què volia fer exactament, i l'hora i el dia de l'incident [cite: 2, 3].
+*   **Protecció de Trucades:** De la mateixa manera, si un usuari de l'àrea d'administració intenta modificar les dades del sistema de trucades dels clients (cosa que no li correspon), el sistema ho bloqueja i deixa l'intent registrat a la taula d'auditoria [cite: 2, 3].
+
+En resum, hem construït un sistema de defensa que funciona en segon pla, aturant qualsevol acció no permesa i deixant-ne constància per poder revisar-ho posteriorment.
+
+
+
 # 3.4 - Disseny Entitat-Relació i Model Relacional
 
 Aqui es troba el diagrama del disseny relacional:
