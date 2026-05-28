@@ -16,7 +16,7 @@ Per tal de garantir la continuïtat del negoci i donar suport als serveis multim
 
 - 50-80 empleats  
 - 4 departaments distribuïts en: Vendes, Suport tècnic, Administració i Logística.  
-- Serveis que ofereix: Desenvolupament de software personalitzat, consultoria cloud, formació tècnica.  
+- Serveis que ofereix: Desenvolupament de software personalitzat, consultoria cloud i formació tècnica.  
 - Clients: Són petites i mitjanes empreses (PYMES) o startups (empresas noves).
 
 On estem ubicats?  
@@ -93,7 +93,7 @@ Per a la **neteja de l’aire**, tenen filtres **HEPA H13** (retenen el 99,95% d
 
 Configuració del passadís fred/calent.
 
-Els dos racks estan col·locats cara a cara creant:
+Els dos racks estan col·locats un al costat de l'altre, creant:
 
 - Passadís fred: La part frontal dels racks, on el CRAC impulsa l’aire fred.  
 - Passadís calent: La part posterior dels racks, on s’acumula l’aire calent que expulsen els servidors.
@@ -110,7 +110,7 @@ Fora de l'edifici:
 Dintre de l’edifici:
 
 - Que la porta del CPD, estigui sense identificar.  
-- Ha d'haver-hi el mateix model porta que a la resta de portes de l’edifici.  
+- Ha d'haver-hi el mateix model de porta que a la resta de portes de l’edifici.  
 - Que la sala no aparegui en els plànols d'evacuació públics, només en documentació interna restringida.
 
 Això es fa per dificultar possibles atacs d'enginyeria social, a més de complir amb la normativa ENS que obliga a no divulgar l'ubicació de instal·lacions crítiques.
@@ -127,7 +127,7 @@ Cables de dades (blaus):
 
 Cables elèctrics (negres):
 
-- Conectant servidors, PDU, SAI.
+- Conectant els servidors, PDU, SAI.
 
 Per normativa els cables de dades i elèctrics hauran de tenir una separació mínima de 30 cm, TIA942, ja que els cables electrònics generen camps electromagnètics i en el cas que un cable de dades passes a prop d’un cable elèctric es pot produir errors de transmissió, paquets corruptes, retransmissió o latència.
 
@@ -137,7 +137,7 @@ A més és important que cada cable tingui una etiqueta en els dos extrems, per 
 
 **Terra tècnic** és bàsicament un terra fals elevat uns 60 cm, damunt el terra real. En aquell forat, passen cables elèctrics i l’aire fred que expulsa el CRAC. A més té com a funció amagar el cablejat elèctric, d’aquesta manera no tenim tots els cables per terra i prevenim possibles accidents.  
 Components:   
-**sòl real:** El formigó original del soterrani.  
+**Sòl real:** El formigó original del soterrani.  
 **Estructura metál·lica:** Potes ajustables de 60 cm d’altura.  
 **Panells:** Plaques d’acer galvanitzat de 60x60 cm que es col·loquen sobre de l’estructura.  
 **Reixetes:** Alguns panells tenen forats per on surt l’aire fred.
@@ -181,7 +181,7 @@ Cada rack té:
 
 3- **Panells cecs (a totes les U buides):** bloquegen el pas d'aire per les U no ocupades. Mantenen el flux d'aire correcte entre passadís fred i calent.
 
-4- **Sensors de temperatura i humitat:** monitoren les condicions internes del rack. Connectats al sistema de monitoratge (CloudWatch, gestionat per Daniel).
+4- **Sensors de temperatura i humitat:** monitoren les condicions internes del rack. Connectats al sistema de monitoratge.
 
 5- **Patch panels (part superior):** on acaben els cables de dades. Permeten connectar/desconnectar equips sense manipular els cables fixos.
 
@@ -192,14 +192,14 @@ Cada un dels racks té un pany amb clau física en les portes frontal i posterio
 Normatives aplicades:
 
 - **ANSI/EIA-310-D:** Estàndard de racks de 19 polzades. 
-- **TIA-942:** Infraestructura de telecomunicacions per a CPDs  
-- **ISO/IEC 11801:** Cablejat genèric
+- **TIA-942:** Infraestructura de telecomunicacions per a CPDs.
+- **ISO/IEC 11801:** Cablejat genèric.
 
 ### 1.2 Infraestructura IT
 
 ## **Infraestructura IT**
 
-A continuació es descriura la infrastructura IT proposada per al CPD de Inova Tech basat en el pla de distribució presentat.
+A continuació es descriurà la infrastructura IT proposada per al CPD de Innova Tech basat en el pla de distribució presentat.
 
 **Pla general del CPD**
 
@@ -296,7 +296,7 @@ La distribució física segueix una estructura optimizada per a:
 | U1-U2 | Patch Panel |
 | U3 | Switch |
 | U4-U6 | Servidor |
-| U7 | Safata organitzaciṕ |
+| U7 | Safata organització |
 | U8-U10 | Segon servidor |
 | U11 | PDU elèctrica |
 | U12 | Espai ventilació |
@@ -347,15 +347,15 @@ L'infraestructura proposa compleix:
 
 * Alta disponibilitat.
 
-Escalabilitat.
+* Escalabilitat.
 
-Seguretat física y lógica.
+* Seguretat física y lógica.
 
-Organizació professional del cablejat.
+* Organització professional del cablejat.
 
-Compatibilitat amb AWS híbrid.
+* Compatibilitat amb AWS híbrid.
 
-Optimizació energètica.
+* Optimització energètica.
 
 ### 1.3 SAI
 
@@ -368,64 +368,48 @@ Optimizació energètica.
 | Firewall | 100 W |
 | NAS/backup | 400 W |
 
-**Total:**
+**1. Càlcul de la càrrega elèctrica total**
 
-2600W
+Abans d'escollir el SAI, el primer que hem de determinar és quanta energia consumeixen tots els nostres equips crítics de manera simultània. Si hi ha un tall elèctric, el sistema ha de poder mantenir-los tots encesos.
 
-**Decidir autonomía:**
+Servidors: Disposem de 8 servidors amb un consum aproximat de 200 W cadascun. Això ens dona un subtotal de 1600 W.
 
-Exemple:
+Xarxa i Seguretat: Hem de sumar l'equipament de connectivitat, com els switches (150 W), i el firewall per a la seguretat perimetral (100 W).
 
-* 15 minuts,  
-* 30 minuts,  
-* 1 hora.
+Emmagatzematge: El nostre sistema de NAS i còpies de seguretat suposa un consum addicional de 400 W.
 
-El normal en CPDs:
+Total: En sumar-ho tot, obtenim un consum màxim aproximat de 2600 W. El SAI que implementem haurà de ser capaç d'entregar, com a mínim, aquesta quantitat d'energia de forma contínua.
 
-* 15-30 min.
+**2. Definició de l'autonomia necessària**
 
-Perquè:
+L'autonomia és el temps que les bateries del SAI ens permetran mantenir els equips funcionant un cop s'ha perdut el subministrament elèctric. És important destacar que el nostre objectiu no és continuar treballant durant hores sense corrent.
 
-* Després entra el generador,  
-* o s'apaga controladament.
+En el disseny del nostre CPD, hem establert un objectiu de 20 minuts. Aquest marge de temps és l'estàndard a la indústria (normalment entre 15 i 30 minuts) i ens cobreix davant de dos escenaris:
 
-**Escollir SAI:**
+Donar temps suficient perquè el generador elèctric de l'edifici arrenqui automàticament i assumeixi la càrrega.
 
-Un SAI de:
+En cas de no disposar de generador, proporcionar un marge segur per enviar un senyal d'apagada controlada als servidors. Això ens permet tancar processos i bases de dades correctament, evitant la pèrdua de dades o la corrupció dels discs que provocaria una apagada sobtada.
 
-* 3000VA  
-* Normalment soporta \~2700W.
+**3. Elecció de la capacitat del SAI**
 
-**Objectiu:**
+Per cobrir aquesta demanda, hem plantejat l'ús d'un SAI de 3000 VA (Voltamperes). En termes de potència real, a causa del factor de potència, un equip d'aquestes característiques acostuma a tenir un límit efectiu d'uns 2700 W.
 
-Mantenir el CPD funcionant, després d’un tall elèctric, durant 20 minuts.
+Atès que el nostre consum total calculat és de 2600 W, treballarem molt a prop del límit de la capacitat de l'equip. Quan un SAI treballa pràcticament al 100% de la seva càrrega, les bateries internes s'esgoten molt més de pressa i, per si soles, no arribarien a cobrir els nostres requisits de temps.
 
-**Solució profesional:**
+**4. La nostra solució professional**
 
-**SAI principal:**
+Com que operarem al límit de la capacitat en watts i un sol SAI base no aguantaria els 20 minuts que ens hem marcat com a objectiu, implementarem una solució més avançada i escalable:
 
-Model:
+Equip principal: Utilitzarem un SAI de gamma empresarial, en concret el model APC Smart-UPS 3000VA.
 
-* APC Smart-UPS 3000VA.
+Expansió d'autonomia: Per aconseguir garantir aquests 20-25 minuts reals amb una càrrega tan alta, hi afegirem un pack d'expansió (mòduls de bateries externes que es connecten al SAI principal).
 
-Capacitat:
-
-* 2700W.
-
-Autonomía:
-
-* \~20-25 minuts a càrrega mitja.
-
-Bateries:
-
-2 mòduls de bateries redundants.
-
-1 SAI principal \+ pack de expansió.
+Redundància: Disposarem de 2 mòduls de bateries redundants. Això garanteix que, si una bateria falla internament, l'altra continuarà donant servei, assegurant que el CPD es mantingui operatiu i complint amb els nostres estàndards de seguretat i fiabilitat.
 
 ### 1.4 Seguretat Física, Lògica i Prevenció de Riscos
 
 -  ## Seguretat física:   
-  La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció, les principals maneres de vigilància són:  
+  La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció. Les principals maneres de vigilància són:  
     
 - Elements d’accés al CPD:
 
@@ -434,24 +418,19 @@ Bateries:
 
 - Càmeres de seguretat i miralls:
 
-  Les càmeres de seguretat serveixen per poder rastrejar qui entra a la sala del CPD, que fa dintre d’aquesta i durant quins períodes de temps ha estat dintre de la sala. El cas dels miralls convexos serveix per ajudar les càmeres a veure el que serien punts cecs sense elles.
+  Les càmeres de seguretat serveixen per poder rastrejar qui entra a la sala del CPD. Que fa dintre d’aquesta i durant quins períodes de temps ha estat dintre de la sala. El cas dels miralls convexos serveix per ajudar les càmeres a veure el que serien punts cecs sense els miralls.
 
 
 - Sistemes de prevenció, detecció i extinció d’incendis:
 
-  Per a prevenir cap incendi, principalment tenir climatització, ja que aquest permet que el CPD no se s'obreescalfi  i tingui problemes de temperatura, en qualsevol cas, també tenir un termòmetre per veure tant la temperatura com l’humitat.
+  Per a prevenir cap incendi, principalment s'ha de tenir climatització, ja que aquest permet que el CPD no se s'obreescalfi i tingui problemes de temperatura, en qualsevol cas, també tenir un termòmetre per veure tant la temperatura com l’humitat.
 
-  Per poder detectar en cas d'haver-hi algun objecte incendiat o que el mateix CPD estigui en llames utilitzar detectors de fum i detectors de calentor d’alta sensibilitat, com dit anteriorment un termòmetre.
+  Per poder detectar en cas d'haver-hi algun objecte incendiat o que el mateix CPD estigui en llames utilitzar detectors de fum i detectors de calentor d’alta sensibilitat, o com hem dit anteriorment podem utilitzar un termòmetre.
 
-  Per un altra part per a poder extingir l’incendi, tenir extintors de C02, ja que són els únics que van millor per apagar incendis elèctrics, el que és en aquest cas.
-
-
-- Vies d’evacuació:
-
-  Per a poder evacuar a la gent que hi hagi dintre, el més recomanat és posar una sortida d’incendis a l’altre costat de la sala, millor si aquesta es troba a lluny dels servidors del CPD, perquè no hi hagi objectes que poden interrompre el camí a aquesta.
+  Per un altra part per a poder extingir l’incendi, tenir extintors de C02, ja que són els únics que van millor per apagar incendis elèctrics, el que són en aquest cas.
 
 - ## Seguretat lògica:  
-  En canvi, la seguretat lògica ha de ser més rigorosa, ja que els servidors en un CPD contenen informació més valuós, és per això que aplicarem la següent seguretat:
+  En canvi, la seguretat lògica ha de ser més rigorosa, ja que els servidors en un CPD contenen informació valuosa, és per això que aplicarem la següent seguretat:
 
 - Restricció d’accés per autorització:
 
@@ -465,7 +444,7 @@ Bateries:
 
 - Mointoratge:
 
-  Programes de monitoratge i recull de logs per poder veure, quin error succeeix, quan succeeix, i per què succeeix. En tot cas el programa de monitoratge, envia un missatge als ordinadors centrals quan ocorre algun error.
+  Programes de monitoratge i recull de logs per poder veure, quin error succeeix, quan succeeix, i per què succeeix. En tot cas el programa de monitoratge, envia un missatge als ordinadors centrals quan succeixi algun error.
 
 
 - ## Còpies de seguretat:
@@ -478,55 +457,61 @@ Bateries:
   En el cas de les RAIDs, el que pensem que és més recomanable és fer una RAID 0+1, ja que en cas d'haver-hi algun problema les dades es poden recuperar de manera eficaç i ràpida.
 
 - Prevenció de riscos laborals:  
-  Quant a prevenció de riscos laborals, volem que els treballadors també portin seguretat, tant per a ells, com per al CPD.  
+  En quant a prevenció de riscos laborals, volem que els treballadors també portin seguretat, tant per a ells, com per al CPD.  
     
-  Principalment, el terra i la roba que porten els treballadors han de ser aïllants d’electricitat perquè els treballadors no siguin electrocutats i els servidors no puguin patir cap tipus sobrecàrrega.  
+  Principalment, el terra i la roba que porten els treballadors han de ser aïllants d’electricitat perquè els treballadors no siguin electrocutats i els servidors no puguin patir cap tipus de sobrecàrrega.  
     
-  També es pot tenir en compte els riscos ergonòmics, per exemple, a l’hora de portar els servidors, o els racs, com tenen un alt pes el millor és utilitzar carros amb els quals es puguin portar aquests aparats.
+  També es pot tenir en compte els riscos ergonòmics, per exemple, a l’hora de portar els servidors, o els racs, com tenen un alt pes, el millor és utilitzar carros amb els quals es puguin portar aquests aparells.
     
-  I podem evitar riscos ambientals, per exemple posar ventiladors per a poder evitar una temperatura molt alta i que així sigui estable, també es poden aplicar auriculars per controlar el soroll en el cas dels treballadors.  
+  I podem evitar riscos ambientals, per exemple, posar els CRACs ja mencionats abans per a poder evitar una temperatura molt alta i que així sigui estable, també es poden aplicar auriculars per controlar el soroll en el cas dels treballadors.  
     
     
 - ## Maneres de fer això més sostenible:  
-  Per poder fer que el CPD sigui sostenible es poden aplicar maneres, com per exemple:  
+  Per poder fer que el CPD sigui sostenible es poden aplicar diferent protocols, com per exemple:  
 - Instal·lació de plaques solars per poder alimentar així el CPD.  
 - Reutilització de l’aire utilitzat, sempre que es faci servir un filtre per poder netejar aquest aire, i així reutilitzar-ho.  
-- Il·luminació mitjançant llums LED de baix consum  
-- I apagar els equips no necessaris a les hores punta per què no consumeixin.
+- Il·luminació mitjançant llums LED de baix consum.
+- I apagar els equips no necessaris a les hores punta per a què no consumeixin.
 
 
 ### 1.5 Implementació al Núvol (AWS)
  
 ## Ansible 
-Primer de tot, per a què volem un servidor Ansible a part, el tenim ja que és el cervell de la nostra infraestructura, per començar en lloc d'estar entrant via SSH d'un en un als nostres servidors per configurar-los a mà, llencem els playbooks des d'Ansible i podrà treballar en totes les màquines alhora.  
-Tindrem en aquest servidor fitxers .yml que són el backup dels nostres servidors, si el servidor web o syslog es trenquen ara mateix, podrem restaurar tota la instal·lació i configuració en menys de 30 segons.  
-A més Ansible no necessita instal·lar programes pesats a les màquines dels nostres companys, es connecta via SSH que ja ve en la instal·lació fa els canvis i se'n va.
+### El paper central del nostre servidor Ansible
+
+Hem implementat un servidor Ansible dedicat per actuar com el cervell i l'orquestrador de tota la nostra infraestructura. Els motius i avantatges principals d'aquesta decisió són els següents:
+
+*   **Automatització eficient i centralitzada:** En lloc de connectar-nos manualment via SSH a cada servidor per configurar-los d'un en un, Ansible ens permet executar *playbooks*. Això significa que podem aplicar configuracions, actualitzacions i canvis a totes les màquines alhora de manera totalment automatitzada, estalviant temps i minimitzant els errors humans.
+*   **Recuperació immediata (Infraestructura com a Codi):** Aquest servidor emmagatzema els fitxers de configuració `.yml`, els quals actuen com un registre i una còpia de seguretat exacta de com han d'estar configurats els nostres equips. Si un servei crític cau o es corromp (com el servidor web o el de *syslog*), aquests fitxers ens permeten restaurar i tornar a desplegar tota la instal·lació i configuració des de zero en menys de 30 segons.
+*   **Arquitectura neta i sense agents:** Un dels grans avantatges d'Ansible és que no requereix instal·lar programari addicional o agents pesats als servidors de destí. Simplement aprofita el protocol SSH, que ja ve integrat de sèrie en els sistemes operatius, per connectar-se, aplicar els canvis de configuració necessaris i desconnectar-se, mantenint els equips de la infraestructura lleugers i segurs.
+
 
 1.INSTAL·LACIÓ D'INSTÀNCIA  
 
-Primer de tot hauré d'iniciar el Launch d'AWS.  
+Primer de tot hauriem d'iniciar el Launch d'AWS:  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/1-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/2-ansible.png)
 
-Entrarem a AWS i seguidament anirem a l'apartat EC2.  
+Entrarem a AWS i seguidament anirem a l'apartat EC2:  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/3-ansible.png)  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/4-ansible.png)  
 
-Una vegada aquí anirem a l'apartat d'“Instances” i llançarem una instància amb l'opció “Launch instances”.  
+Una vegada aquí anirem a l'apartat d'“Instances” i llançarem una instància amb l'opció “Launch instances”:  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/5-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/6-ansible.png)
 
-Llançarem la instància en el sistema operatiu Ubuntu Server 24.04, amb el nom ANSIBLE.  
+Llançarem la instància en el sistema operatiu Ubuntu Server 24.04, amb el nom ANSIBLE:  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/7-ansible.png)
 
-Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau.  
+Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau: 
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/8-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/9-ansible.png)
@@ -534,33 +519,36 @@ Crearem les claus, perquè així els nostres companys puguin connectar-se al nos
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/10-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/11-ansible.png)
-I amb tot configurat podrem llançar la nostra instància.  
+
+I amb tot configurat podrem llançar la nostra instància:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/12-ansible.png)
 
-Podem veure com efectivament s'ha creat correctament.  
+Podem veure com efectivament s'ha creat correctament:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/13-ansible.png)
 
 Una vegada creada, el primer que farem serà assignar-li la IP elàstica perquè sigui estàtica i així no canviï de IP cada cert temps.  
-Per a això ens dirigirem al menú de l'esquerra.
+
+Per això ens dirigirem al menú de l'esquerra:
+
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/14-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/15-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/16-ansible.png)
 
-Una vegada creada i confirmant la seva correcta configuració, la hi assignarem al nostre servidor ansible anteriorment creat.  
+Una vegada creada i confirmant la seva correcta configuració, l'hi assignarem  la IP elàstica al nostre servidor ansible anteriorment creat:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/17-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/18-ansible.png)
 
-Veurem que s'ha associat correctament anant a les instàncies i veient la IP elàstica del nostre servidor.  
+Veurem que s'ha associat correctament anant a les instàncies i veient la IP elàstica del nostre servidor:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/19-ansible.png)
 
-Una vegada assignat hauré de connectar-me al servidor Ansible via SSH, però primer de tot hauré de canviar els permisos de la clau pública si inicio des d'Ubuntu.  
+Una vegada assignat hauriem de connectar-nos al servidor Ansible via SSH, però abans caldria canviar els permisos de la clau pública:  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/20-ansible.png)
 
@@ -568,15 +556,15 @@ Una vegada assignat hauré de connectar-me al servidor Ansible via SSH, però pr
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/22-ansible.png)
 
-Copio la commanda per després utilitzar-la, encara això he de canviar els permisos de la clau.
+Es copia la commanda per després utilitzar-la, encara això, he de canviar els permisos de la clau:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/23-ansible.png)
 
-Ara si, peguem la comanda copiada enteriorment.
+Ara si, peguem la comanda copiada enteriorment que ens permetrà accedir a la instància:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/24-ansible.png)
 
-Una vegada dins de la màquina cambien tant el hostname, com la creació de l'usuario "administracio".
+Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio":
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/25-ansible.png)
 
@@ -586,65 +574,63 @@ Una vegada dins de la màquina cambien tant el hostname, com la creació de l'us
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/28-ansible.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/29-ansible.png)
-
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/30-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/31-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/32-ansible.png)
 
-Actualitzo la màquina.
+Actualitzem la instància:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/33-ansible.png)
 
-I instal·lo l'ansible.
+I instal·lo l'ansible:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/34-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/35-ansible.png)
 
-Creació de scripts.  
+Creació de scripts:  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/36-ansible.png)
 
 Primer vaig a crear les claus de les màquines.
 
-La del syslog  
+La del syslog:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/37-ansible.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/38-ansible.png)
-
-La de la web  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/38-ansible.png)  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/39-ansible.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/40-ansible.png) 
+La de la web:
 
-I la meva pròpia  
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/40-ansible.png)  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/41-ansible.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/42-ansible.png)
+I la meva pròpia:
 
-Li cambio els permisos a les claus.
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/42-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/43-ansible.png)
 
-Creació de l'arxiu de hosts.  
+Li cambio els permisos a les claus:  
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/44-ansible.png)
 
-Desactivar la verificació de claus d'Ansible.  
+Creació de l'arxiu de hosts:
+
+Desactivar la verificació de claus d'Ansible:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/45-ansible.png)
 
-Creación de scripts  
+Creació de scripts:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/46-ansible.png)
 
-Primer el web  
+Primer el web:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/47-ansible.png)
 
@@ -652,24 +638,19 @@ Justificació:
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/48-ansible.png)
 
-Després el syslog. 
+Després el syslog: 
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/49-ansible.png)
 
 ![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/50-ansible.png)
 
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/51-ansible.png)
-
-![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/52-ansible.png)
-
-
 ## Servei de directori actiu per a guardar els usuaris.
 
-Avanç de llançar la EC2, necesiten crear una clave SSH, per poder accedir a la máquina.
+Avanç de llançar la EC2, necesiten crear una clave SSH, per poder accedir a la instància:
 
 ![Clau LDAP](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/Clau-ldap.png)
 
-Una vegada creades el parell de claus, llencem la instancia del servidor amb les següents característiques:
+Una vegada creades el parell de claus, llencem la instància del servidor amb les següents característiques:
 
 ![Instància AWS 1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/instancia1..png)
 
@@ -679,13 +660,13 @@ Una vegada creades el parell de claus, llencem la instancia del servidor amb les
 
 ![Instància AWS 4](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/instancia4.png)
 
-Ens connectem a la maquina via SSH.
+Ens connectem a la instància via SSH:
 
 ![Accés SSH](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ssh-acceder.png)
 
 **Centralització d’usuaris.**
 
-Fixar el hostname.
+Modifiquem el hostname:
 
 ![Hostname](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/hostname.png)
 
@@ -693,15 +674,15 @@ Fixar el hostname.
 
 **Instal·lació OpenLDAP.**
 
-Utilitzem la comanda “sudo apt install \-y slapd ldap-utils”.
+Utilitzem la comanda “sudo apt install \-y slapd ldap-utils”:
 
 ![Instal·lació slapd](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/install-slapd.png)
 
-Configurem la contrasenya de l’administrador
+Configurem la contrasenya de l’administrador:
 
 ![Admin contrasenya](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/admin-contra.png)
 
-Verifiquem que s’ha fet la instal·lació correctament
+Verifiquem que s’ha fet la instal·lació correctament:
 
 ![Status servei](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/status.png)
 
@@ -719,19 +700,19 @@ Verifiquem que s’ha fet la instal·lació correctament
 
 ![Slapd evidència 6](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/slapd6.png)
 
-Comprovació
+Comprovació:
 
 ![Comprovació slapd](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/comprobslapd.png)
 
 **Creació d'usuari administrador, accés amb clau publica/privada.**
 
-Fem la configuració necessària al fitxer, "sudo nano /etc/ssh/sshd_config".
+Fem la configuració necessària al fitxer, "sudo nano /etc/ssh/sshd_config":
 
 ![Admin SSH 1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminssh1.png)
 
 ![Admin SSH 2](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminssh2.png)
 
-Comprovació amb l'usurai administració.
+Comprovació amb l'usurai administració:
 
 ![Admin Login](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/adminlogin.png)
 
@@ -743,9 +724,9 @@ Comprovació amb l'usurai administració.
  
 Els 4 usuaris s'han creat mitjançant el fitxer `~/usuarios.ldif`. Cada entrada defineix els atributs necessaris per al funcionament del compte al sistema i al directori:
  
-- **`objectClass: inetOrgPerson`** — dades personals (nom i cognoms)
-- **`objectClass: posixAccount`** — integració Unix (UID, GID, shell, directori home)
-- **`objectClass: shadowAccount`** — gestió de contrasenyes
+- **`objectClass: inetOrgPerson`** — dades personals (nom i cognoms).
+- **`objectClass: posixAccount`** — integració Unix (UID, GID, shell, directori home).
+- **`objectClass: shadowAccount`** — gestió de contrasenyes.
 Tots comparteixen `gidNumber: 10000`, `loginShell: /bin/bash` i `userPassword: @ITB2026`.
  
 ---
