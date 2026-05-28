@@ -1288,7 +1288,7 @@ Després instal·lem l'aplicació mitjançant apt:
 
 ![APT jitsi imatge video](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video13.png)
 
-Ara el jitsi ens demana un nom de domini a la que posar, per a la hora de buscar la reunió pel navegador, tenir una mena de identificador, al nostre cas com no tenim un nom de domini ja que no tenim bind9 instal·lat, li posem que sigui simplement la IP pública de la màquina:
+Ara el jitsi ens demana un nom de domini a la que posar, per a la hora de buscar la reunió pel navegador tenir una mena de identificador, al nostre cas com no tenim un nom de domini ja que no tenim bind9 instal·lat li posem que sigui simplement la IP pública de la màquina:
 
 ![Nom jitsi imatge video](../Imatges/Bloc%200375%20Serveis%20de%20xarxes%20i%20internet/video14.png)
 
@@ -1324,7 +1324,7 @@ Per ultim, anem a verificar la pujada i baixada amb els serveis actius, i mentre
 
 Amb aquestes dades hem pogut observar que aquest sistema si que pot ser necessari per a un CPD, en canvi, ha de ser un CPD simple i que no gasti molts recursos, en el cas contrari, ja sigui per a una empresa en la que gasti molts recursos, no es suficient. És a dir, que per portar coses petites com un servidor, docker entre altres, si que pot ser util.
 
-Si volguessim utilitzar-ho per a una empressa llavors algunes millores per a la infraestructura podrien ser, per exemple, segmentació de xarxa, millora de hardware dels dispositius i una connexió multioperadora.
+Si volguessim utilitzar-ho per a una empressa llavors algunes millores per a la infraestructura podrien ser, per exemple, segmentació de xarxa, millora de hardware dels dispositius o una connexió multioperadora.
 
 
 ### 2.4 Comprovacions d'Amplada de Banda i Rendiment
