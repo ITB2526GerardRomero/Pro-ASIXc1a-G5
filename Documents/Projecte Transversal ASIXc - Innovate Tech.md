@@ -485,103 +485,103 @@ Hem implementat un servidor Ansible dedicat per actuar com el cervell i l'orques
 1. Instal·lació d'instància 
 
 Primer de tot hauriem d'iniciar el Launch d'AWS:  
-![image1](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible1.png)
+![image1](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible1.png)
 
 Crearem les claus, perquè així els nostres companys puguin connectar-se al nostre servidor només passant-li la nostra clau pública:
 
-![image2](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible2.png)  
+![image2](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible2.png)  
 
-![image3](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible3.png)
+![image3](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible3.png)
 
 Seleccionarem la clau abans creada como també l’edició de l’ordinador de lloguer que viu en un centre de dades d'Amazon, permetrem la conexió via SSH desde qualsevol lloc:
 
-![image4](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible4.png)  
+![image4](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible4.png)  
 
-![image5](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible5.png)
+![image5](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible5.png)
 
-![image6](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible6.png)
+![image6](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible6.png)
 
 Llavors llançem l'instància:
 
-![image7](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible7.png)
+![image7](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible7.png)
 
 Una vegada creada, el primer que farem serà assignar-li la IP elàstica perquè sigui estàtica i així no canviï de IP cada cert temps.
 Per a això ens dirigirem al menú de l'esquerra a l’apartat “Direcciones IP elásticas”.
 I li associarem una nova IP elástica:
 
-![image8](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible8.png)
+![image8](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible8.png)
 
-![image9](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible9.png)
+![image9](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible9.png)
 
 Comprovació:
 
-![image10](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible10.png)
+![image10](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible10.png)
 
 Es copia la commanda per després utilitzar-la, encara això, he de canviar els permisos de la clau:
 
-![image11](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible11.png)
+![image11](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible11.png)
 
 Ara si, peguem la comanda copiada enteriorment que ens permetrà accedir a la instància:
 
-![image12](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible12.png)
+![image12](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible12.png)
 
 2. Configuració del servidor
 
 Una vegada dins de la instància primer cambiem el hostname, i després creem l'usuari "administracio" amb contrasenya “@ITB2026”:
 
-![image13](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible13.png)
+![image13](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible13.png)
 
-![image14](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible14.png)
+![image14](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible14.png)
 
-![image15](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible15.png)
+![image15](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible15.png)
 
 Una vegada hem fet la creació de l'usuari li copiem les claus SSH de l'usuari ubuntu perquè pugui iniciar sessió sense contrasenya, a part d'això l'afegim al grup root junt a ficar-ho al fitxer sudoers per concedir privilegis d'administrador:
 
-![image16](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible16.png)
+![image16](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible16.png)
 
-![image17](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible17.png)
+![image17](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible17.png)
 
 Reiniciem el servidor perquè es desin tots els canvis:
 
-![image18](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible18.png)
+![image18](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible18.png)
 
 I veiem que efectivament podem entrar sense contrasenya amb l'usuari creat prèviament i que té permisos de sudo:
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible19.png)
 
 3.Actualització i instal·lació d'ansible
 
 Actualitzem la llista de paquets del sistema i instal·lem les eines necessàries per poder llençar les instàncies d'AWS mitjançant els playbooks:
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible20.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible20.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible21.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible21.png)
 
 4.Creació, execució i comprobació de playbook del servidor web
 
 Primer de tot, hem d'agafar les credencials que m'ha passat el meu company per enganxar-les en un document anomenat "credentials", gràcies a aquest fitxer, ens deixa crear la instància per al meu company:
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible22.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible22.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible23.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible23.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible24.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible24.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible26.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible26.png)
 
 Ara hem de crear el playbook pel servdior web:
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible25.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible27.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible27.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible28.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible28.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible29.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible29.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible30.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible30.png)
 
-![image19](../../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible31.png)
+![image19](../Imatges/Bloc%200371%20Fonaments%20de%20maquinari/ansible31.png)
 
 
 
