@@ -8,7 +8,7 @@ Aquest document unifica les diferents fases del projecte de transformació tecno
 
 Per tal de garantir la continuïtat del negoci i donar suport als serveis multimèdia, la primera fase del projecte se centra en el disseny i implementació d'un Centre de Processament de Dades (CPD) eficient, segur i sostenible.
 
-**Ubicació Física del CPD \- Innovate Tech**
+# 1.1 - Ubicació Física del CPD
 
 **1- Situació de la sala a l’edifici**
 
@@ -195,9 +195,9 @@ Normatives aplicades:
 - **TIA-942:** Infraestructura de telecomunicacions per a CPDs.
 - **ISO/IEC 11801:** Cablejat genèric.
 
-### 1.2 Infraestructura IT
+# 1.2 - Infraestructura IT
 
-## **Infraestructura IT**
+# **Infraestructura IT**
 
 A continuació es descriurà la infrastructura IT proposada per al CPD de Innova Tech basat en el pla de distribució presentat.
 
@@ -353,7 +353,7 @@ L'infraestructura proposa compleix:
 
 * Optimització energètica.
 
-### 1.3 SAI
+# 1.3 - SAI
 
 **Càlcul d’energia per a cada servidor:**
 
@@ -402,7 +402,7 @@ Expansió d'autonomia: Per aconseguir garantir aquests 20-25 minuts reals amb un
 
 Redundància: Disposarem de 2 mòduls de bateries redundants. Això garanteix que, si una bateria falla internament, l'altra continuarà donant servei, assegurant que el CPD es mantingui operatiu i complint amb els nostres estàndards de seguretat i fiabilitat.
 
-### 1.4 Seguretat Física, Lògica i Prevenció de Riscos
+# 1.4 - Seguretat Física, Lògica i Prevenció de Riscos
 
 -  ## Seguretat física:   
   La seguretat física implica tenir el lloc vigilat 24/7 de diferents maneres, tenir objectes de detecció. Les principals maneres de vigilància són:  
@@ -470,7 +470,7 @@ Redundància: Disposarem de 2 mòduls de bateries redundants. Això garanteix qu
 - I apagar els equips no necessaris a les hores punta per a què no consumeixin.
 
 
-### 1.5 Implementació al Núvol (AWS)
+# 1.5 - Implementació al Núvol (AWS)
  
 ## Ansible 
 ### El paper central del nostre servidor Ansible
@@ -995,10 +995,10 @@ Comprovació del funcionament dels logs:
 
 Un cop consolidada la infraestructura de maquinari (tant local com al núvol), el següent pas és desplegar els serveis que donaran suport a la comunicació interna i la formació corporativa d'Innovate Tech, recolzant-se sobre la base ja dissenyada.
 
-## 2.1 Descripció General dels Serveis
+# 2.1 - Descripció General dels Serveis
 Implementació d'una arquitectura multimèdia que suporti la distribució de continguts en streaming i eines de videoconferència en temps real, accessibles des de clients locals i navegadors web.
 
-## 2.2 Implantació del Servei d'Àudio
+# 2.2 - Implantació del Servei d'Àudio
 **Descripció del servei:**
 
 El servei d’àudio implementat permet la transmissió de contingut multimèdia en temps real mitjançant tecnologia de streaming.
@@ -1160,7 +1160,7 @@ Tot i els bons resultats obtinguts, es proposen les següents millores:
 - Balanceig de càrrega per suportar múltiples clients simultanis.  
 - Monitorització contínua de l’ample de banda i latència.
 
-### 2.3 Implantació del Servei de Vídeo i Videoconferència
+# 2.3 - Implantació del Servei de Vídeo i Videoconferència
 
 **Funcionalitat del servei de vídeo:**
 
@@ -1268,7 +1268,7 @@ Algunes millores a incorporas per a una empresa poden ser:
 - Millora del hardware.
 - Una connexió multioperadora.
 
-## 3\. Disseny i implementació d'una base de dades
+## 3. Disseny i implementació d'una base de dades (Bloc 0377)
 
 Som Innovate Tech, una empresa de consultoria tecnològica amb seu al Districte 22@ de Barcelona. Disposem d’una estructura interna amb 4 departaments:
 
@@ -1302,7 +1302,7 @@ Creació de l’usuari per accedir mitjançant clau pública/privada, més compr
 
 ![Comprobación admin](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/comprob-admin.png?raw=true)
 
-**3.1 Context del Projecte** 
+# 3.1 - Context del Projecte
 
 Innovate Tech disposa d’una estructura interna amb 4 departaments principal com ja havíem comentat abans. Aquests departaments necessiten eines de comunicació eficients, incloent-hi un sistema de videoconferències i trucades per coordinar les seves operacions diàries.  
 Aquesta base de dades servirà com a font de dades per a l’aplicació de gestió que residirà al servidor web.
@@ -1314,7 +1314,7 @@ S’ha escollit MySQL com a sistema gestor de bases de dades, per els següents 
 - Integració nativa amb aplicacions web mitjançant PHP, Python i Node.js.  
 - Sense cost de llicència (open source, llicència GPL).
 
-**3.2 Disseny i Implementació de la Base de Dades**
+# 3.2 - Disseny i Implementació de la Base de Dades
 
 La Base de dades d’Innovate Tech ha de  cobrir les següents àrees funcionals:
 
@@ -1544,7 +1544,7 @@ Dades de prova inserides (inserts):
 ![INSERT10](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/insert10.png?raw=true)
 
 
-**3.3 Gestió d'Usuaris, Rols i Permisos**
+# 3.3 - Gestió d'Usuaris, Rols i Permisos
 
 S’han creat 4 rols amb permisos diferenciats segons les funcions de cada tipus d’usuari.
 
@@ -1586,7 +1586,7 @@ Comprovació:
 
 ![Comparativa roles](https://github.com/ITB2526GerardRomero/Pro-ASIXc1a-G5/blob/main/Imatges/Bloc%200377%20Administraci%C3%B3%20de%20bases%20de%20dades/rolcompr.png?raw=true)
 
-**3.4 Disseny Entitat-Relació i Model Relacional**
+# 3.4 - Disseny Entitat-Relació i Model Relacional
 
 Aqui es troba el diagrama del disseny relacional:
 
