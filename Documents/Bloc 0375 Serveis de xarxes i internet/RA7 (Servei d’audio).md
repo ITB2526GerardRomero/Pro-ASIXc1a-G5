@@ -1,4 +1,4 @@
-## 2.2 Implantació del Servei d'Àudio
+# 2.2 - Implantació del Servei d'Àudio
 **Descripció del servei:**
 
 El servei d’àudio implementat permet la transmissió de contingut multimèdia en temps real mitjançant tecnologia de streaming.
